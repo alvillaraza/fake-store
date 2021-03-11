@@ -1,9 +1,16 @@
-// import axios from axios;
+import React from "react";
+import { Link } from "react-router-dom";
 
-function Store() {
+import Product from "./Product";
+
+function Store({ productsList }) {
   return (
-    <div className="header">
-      <p> Items</p>
+    <div className="store">
+      {productsList.map((product) => (
+        <Link key={product.id} to={`/products/${product.id}`}>
+          <Product product={product} />
+        </Link>
+      ))}
     </div>
   );
 }

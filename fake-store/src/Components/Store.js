@@ -1,8 +1,6 @@
-import axios from axios;
+// import axios from axios;
 
 function Store() {
-
-  
   return (
     <div className="header">
       <p> Items</p>

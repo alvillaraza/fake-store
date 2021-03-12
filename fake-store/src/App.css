@@ -1,57 +1,78 @@
+body {
+  line-height: 1.4;
+}
 .heading-font {
+  color: black;
   font-family: "Corben", cursive;
 }
 .text-font {
+  color: black;
   font-family: "Nobile", sans-serif;
 }
 img {
   max-width: 100%;
 }
 h1 {
+  color: black;
   font-family: "Corben", cursive;
+}
+h2,
+p {
+  color: black;
+  font-family: "Nobile", sans-serif;
 }
 a {
   text-decoration: none;
 }
 a:hover {
-  text-decoration: underline;
+  text-decoration: underline black;
 }
 .app-container {
   margin: 5%;
   text-align: center;
 }
-.product-list {
+.store-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-.product-list img {
+@media screen and (max-width: 720px) {
+  .store-container {
+    grid-template-columns: 1fr;
+  }
+}
+.product-card {
+  padding: 40px;
+}
+.product-card img {
   float: left;
   width: 300px;
   height: 300px;
   object-fit: contain;
-}
-.product-card {
-  padding: 40px;
-  max-width: 100%;
 }
 .product-card:hover {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   animation-name: example;
   animation-duration: 0.25s;
-  border-left: 8px solid red;
+  border-left: 8px solid black;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .product-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 5%;
+  padding: 5%;
 }
-.product-info img {
-  width: 50%;
+.product-info .img-container {
+  padding: 10%;
 }
 .product-info .desc {
   text-align: left;
+}
+@media screen and (max-width: 720px) {
+  .product-info {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
 }
 .search-bar {
   text-align: right;

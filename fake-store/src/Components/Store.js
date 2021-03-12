@@ -3,15 +3,24 @@ import { Link } from "react-router-dom";
 
 import ProductCard from "./ProductCard";
 
-function Store({ productResults }) {
+function Store({ productResults, category }) {
   return (
-    <div className="product-list">
+    <div className="store-container">
       {productResults.map((product) => {
-        return (
-          <Link key={product.id} to={`/product/${product.id}`}>
-            <ProductCard product={product} />
-          </Link>
-        );
+        if (!category) {
+
+          return (
+            <Link key={product.id} to={`/product/${product.id}`}>
+              <ProductCard product={product} />
+            </Link>
+          );
+        } else if (product.category === category) {
+          return (
+            <Link key={product.id} to={`/product/${product.id}`}>
+              <ProductCard product={product} />
+            </Link>
+          );
+        }
       })}
     </div>
   );

@@ -12,7 +12,7 @@ import "./Normalize.css";
 
 function App() {
   const [productsList, setProductsList] = useState([]);
-  // const [category, setCategory] = useState();
+  const [category, setCategory] = useState("");
   const [query, updateQuery] = useState("");
 
   const getProducstList = () => {
@@ -32,7 +32,6 @@ function App() {
 
   // Start of Search Functionality
   // Start of Search Functionality
-
   // Allows users to search by title, description, and category
   const fuse = new Fuse(productsList, {
     keys: ["title", "description", "category"],
@@ -45,7 +44,7 @@ function App() {
   }
   const result = fuse.search(query);
 
-  // displays the results...if there is a query in search, display what was searched : otherwise display all products
+  // displays the results - if there is a query in search, display what was searched : otherwise display all products
   const productResults = query
     ? result.map((productResult) => productResult.item)
     : productsList;
@@ -54,12 +53,12 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header query={query} onSearch={onSearch} />
+      <Header query={query} onSearch={onSearch} setCategory={setCategory} />
 
       <Route exact path="/">
         {/* make sure products load first */}
         {productsList ? (
-          <Store productResults={productResults} />
+          <Store productResults={productResults} category={category} />
         ) : (
           "still loading......."
         )}

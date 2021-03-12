@@ -1,8 +1,14 @@
+body {
+  line-height: 1.4;
+}
+
 .heading-font {
+  color: black;
   font-family: "Corben", cursive;
 }
 
 .text-font {
+  color: black;
   font-family: "Nobile", sans-serif;
 }
 
@@ -14,22 +20,41 @@ h1 {
   .heading-font;
 }
 
+h2,
+p {
+  .text-font;
+}
+
 a {
   text-decoration: none;
   &:hover {
-    text-decoration: underline;
+    text-decoration: underline black;
   }
 }
 
 .app-container {
-  margin: 5%;
+    margin: 5%;
   text-align: center;
 }
+
+// Header //
+// Header //
+
 // Store //
 // Store //
-.product-list {
+.store-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
+  @media screen and (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ProductCard //
+// ProductCard //
+.product-card {
+  padding: 40px;
 
   img {
     float: left;
@@ -39,18 +64,12 @@ a {
   }
 }
 
-// ProductCard //
-// ProductCard //
-.product-card {
-  padding: 40px;
-  max-width: 100%;
-}
 .product-card:hover {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   animation-name: example;
   animation-duration: 0.25s;
-  border-left: 8px solid red;
+  border-left: 8px solid black;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
@@ -59,14 +78,19 @@ a {
 .product-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 5%;
+  padding: 5%;
 
-  img {
-    width: 50%;
+  .img-container {
+    padding: 10%;
   }
 
   .desc {
     text-align: left;
+  }
+
+  @media screen and (max-width: 720px) {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
   }
 }
 

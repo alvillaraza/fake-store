@@ -24,6 +24,12 @@ function Product() {
   // Added this to make sure that product descriptions must start with capital letter
   const productDescription = product.description;
 
+  //Added to make sure price is formatted correctly
+  var formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
   return (
     <div className="product-info">
       <div className="img-container">
@@ -32,7 +38,7 @@ function Product() {
 
       <div className="product-desc">
         <h2>{product.title}</h2>
-        <p>{product.price}</p>
+        <p>Price: ${formatter.format(product.price)}</p>
         <p className="desc">
           {productDescription.charAt(0).toUpperCase() +
             productDescription.slice(1)}

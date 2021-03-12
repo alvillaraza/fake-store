@@ -1,45 +1,82 @@
+.heading-font {
+  font-family: "Corben", cursive;
+}
+
+.text-font {
+  font-family: "Nobile", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  .heading-font;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.app-container {
+  margin: 5%;
+  text-align: center;
+}
 // Store //
 // Store //
-/* Dropdown Button */
-// .dropbtn {
-//   background-color: #3498db;
-//   color: white;
-//   padding: 16px;
-//   font-size: 16px;
-//   border: none;
-//   cursor: pointer;
-// }
+.product-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 
-/* The container <div> - needed to position the dropdown content */
-// .dropdown {
-//   position: relative;
-//   display: inline-block;
-// }
+  img {
+    float: left;
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+  }
+}
 
-// /* Dropdown Content (Hidden by Default) */
-// .dropdown-content {
-//   display: none;
-//   position: absolute;
-//   background-color: #f1f1f1;
-//   min-width: 160px;
-//   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-//   z-index: 1;
-// }
+// ProductCard //
+// ProductCard //
+.product-card {
+  padding: 40px;
+  max-width: 100%;
+}
+.product-card:hover {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  animation-name: example;
+  animation-duration: 0.25s;
+  border-left: 8px solid red;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
 
-// /* Links inside the dropdown */
-// .dropdown-content a {
-//   color: black;
-//   padding: 12px 16px;
-//   text-decoration: none;
-//   display: block;
-// }
+// Product //
+// Product //
+.product-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 5%;
 
-// /* Change color of dropdown links on hover */
-// .dropdown-content a:hover {
-//   background-color: #ddd;
-// }
+  img {
+    width: 50%;
+  }
 
-// /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-// .show {
-//   display: block;
-// }
+  .desc {
+    text-align: left;
+  }
+}
+
+// SearchBar //
+// SearchBar //
+
+.search-bar {
+  text-align: right;
+
+  //   .search-input{
+  //       border: 1px solid black;
+  //   }
+}

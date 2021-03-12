@@ -7,11 +7,12 @@ import Header from "./Components/Header";
 import Store from "./Components/Store";
 import Product from "./Components/Product";
 
-// import "./App.css";
+import "./App.css";
+import "./Normalize.css";
 
 function App() {
   const [productsList, setProductsList] = useState([]);
-  const [category, setCategory] = useState();
+  // const [category, setCategory] = useState();
   const [query, updateQuery] = useState("");
 
   const getProducstList = () => {
@@ -53,21 +54,12 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header
-        setCategory={setCategory}
-        productsList={productsList}
-        query={query}
-        onSearch={onSearch}
-      />
+      <Header query={query} onSearch={onSearch} />
 
       <Route exact path="/">
         {/* make sure products load first */}
         {productsList ? (
-          <Store
-            productsList={productsList}
-            category={category}
-            productResults={productResults}
-          />
+          <Store productResults={productResults} />
         ) : (
           "still loading......."
         )}

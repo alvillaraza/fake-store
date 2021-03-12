@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import ProductCard from "./ProductCard";
 
-function Store({ productsList, category, productResults }) {
+function Store({ productResults }) {
   return (
-    <div className="store">
+    <div className="product-list">
       {productResults.map((product) => {
         return (
           <Link key={product.id} to={`/product/${product.id}`}>

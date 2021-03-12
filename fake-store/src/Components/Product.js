@@ -21,13 +21,19 @@ function Product() {
     return "loading product information...";
   }
 
+  // Added this to make sure that product descriptions must start with capital letter
+  const productDescription = product.description;
+
   return (
-    <div>
-      <p>
-        <h1>{product.title}</h1>
-        <img src={product.image} />
-        <p>{product.description}</p>
-      </p>
+    <div className="product-info">
+      <img src={product.image} alt="product-image" />
+      <div className="product-desc">
+        <h2>{product.title}</h2>
+        <p>{product.price}</p>
+        <p className="desc">
+          {productDescription.charAt(0).toUpperCase() + productDescription.slice(1)}
+        </p>
+      </div>
     </div>
   );
 }

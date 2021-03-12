@@ -3,9 +3,14 @@ import { Link } from "react-router-dom";
 
 import ProductCard from "./ProductCard";
 
-function Store({ productsList, category }) {
+function Store({ productsList, category, productResults }) {
   return (
     <div className="store">
+      {productResults.map((p) => {
+        console.log("p", p.title);
+        return <p>{p.title}</p>;
+      })}
+
       {productsList.map((product) => {
         if (!category) {
           return (

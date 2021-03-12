@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Product from "./Product";
 
 function Store({ productsList }) {
+  console.log(productsList);
+
   return (
     <div className="store">
       {productsList.map((product) => (

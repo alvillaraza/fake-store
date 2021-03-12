@@ -9,13 +9,12 @@ import Product from "./Components/Product";
 // import "./App.css";
 
 function App() {
-  const [productsList, setProductsList] = useState([]);
+  const [productsList, setProductsList] = useState();
 
   const getProducstList = () => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((response) => {
-        console.log(response.data);
         setProductsList(response.data);
       })
       .catch((err) => {
@@ -32,10 +31,12 @@ function App() {
       <Header />
 
       <Route exact path="/">
-        <Store productsList={productsList} />
+        {productsList ? (
+          <Store productsList={productsList} />
+        ) : (
+          "still loading......."
+        )}
       </Route>
-
-      <Product />
     </div>
   );
 }

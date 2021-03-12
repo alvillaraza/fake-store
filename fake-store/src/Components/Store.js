@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Product from "./Product";
+import ProductCard from "./ProductCard";
 
 function Store({ productsList }) {
   console.log(productsList);
@@ -9,8 +9,8 @@ function Store({ productsList }) {
   return (
     <div className="store">
       {productsList.map((product) => (
-        <Link key={product.id} to={`/products/${product.id}`}>
-          <Product product={product} />
+        <Link key={product.id} to={`/product/${product.id}`}>
+          <ProductCard product={product} />
         </Link>
       ))}
     </div>

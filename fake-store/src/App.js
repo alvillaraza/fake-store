@@ -9,7 +9,7 @@ import Product from "./Components/Product";
 // import "./App.css";
 
 function App() {
-  const [productsList, setProductsList] = useState();
+  const [productsList, setProductsList] = useState([]);
 
   const getProducstList = () => {
     axios
@@ -31,11 +31,16 @@ function App() {
       <Header />
 
       <Route exact path="/">
+        {/* make sure products load first */}
         {productsList ? (
           <Store productsList={productsList} />
         ) : (
           "still loading......."
         )}
+      </Route>
+
+      <Route path="/product/:id">
+        <Product productsList={productsList} />
       </Route>
     </div>
   );

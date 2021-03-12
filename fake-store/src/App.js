@@ -29,10 +29,13 @@ function App() {
     getProducstList();
   }, []);
 
-  // this is the result after Search happens
+  // Start of Search Functionality
+  // Updates the search bar
+  // Start of Search Functionality
 
+  // Allows users to search by title, description, and category
   const fuse = new Fuse(productsList, {
-    keys: ["title", "description"],
+    keys: ["title", "description", "category"],
     includeScore: true,
   });
 
@@ -40,9 +43,13 @@ function App() {
     updateQuery(currentTarget.value);
   }
   const result = fuse.search(query);
-  console.log("result", result);
 
-  const productResults = result.map((productResult) => productResult.item);
+  const productResults = query
+    ? result.map((productResult) => productResult.item)
+    : productsList;
+  // displays the results...if there is a query in search, display what was searched : otherwise display all products
+  // End of Search Functionality
+  // End of Search Functionality
 
   return (
     <div className="app-container">

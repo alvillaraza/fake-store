@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouteMatch } from "react-router-dom";
 
-import ProductCard from "./ProductCard";
-
-function Product({ productsList }) {
+function Product() {
   const [product, setProduct] = useState(null);
   const match = useRouteMatch();
 
@@ -26,7 +24,9 @@ function Product({ productsList }) {
   return (
     <div>
       <p>
-        <ProductCard product={product} />
+        <h1>{product.title}</h1>
+        <img src={product.image} />
+        <p>{product.description}</p>
       </p>
     </div>
   );

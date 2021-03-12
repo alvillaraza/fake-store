@@ -10,6 +10,7 @@ import Product from "./Components/Product";
 
 function App() {
   const [productsList, setProductsList] = useState([]);
+  const [category, setCategory] = useState();
 
   const getProducstList = () => {
     axios
@@ -28,12 +29,12 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header />
+      <Header setCategory={setCategory} productsList={productsList} />
 
       <Route exact path="/">
         {/* make sure products load first */}
         {productsList ? (
-          <Store productsList={productsList} />
+          <Store productsList={productsList} category={category} />
         ) : (
           "still loading......."
         )}

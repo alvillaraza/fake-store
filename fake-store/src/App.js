@@ -30,7 +30,6 @@ function App() {
   }, []);
 
   // Start of Search Functionality
-  // Updates the search bar
   // Start of Search Functionality
 
   // Allows users to search by title, description, and category
@@ -39,15 +38,16 @@ function App() {
     includeScore: true,
   });
 
+  // Updates the search bar
   function onSearch({ currentTarget }) {
     updateQuery(currentTarget.value);
   }
   const result = fuse.search(query);
 
+  // displays the results...if there is a query in search, display what was searched : otherwise display all products
   const productResults = query
     ? result.map((productResult) => productResult.item)
     : productsList;
-  // displays the results...if there is a query in search, display what was searched : otherwise display all products
   // End of Search Functionality
   // End of Search Functionality
 

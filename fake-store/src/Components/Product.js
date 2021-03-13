@@ -38,7 +38,7 @@ function Product() {
 
       <div className="product-desc">
         <h2>{product.title}</h2>
-        <p>Price: ${formatter.format(product.price)}</p>
+        <p>Price: {formatter.format(product.price)}</p>
         <p className="desc">
           {productDescription.charAt(0).toUpperCase() +
             productDescription.slice(1)}

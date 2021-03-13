@@ -1,5 +1,5 @@
 body {
-  line-height: 1.4;
+  line-height: 1.5;
 }
 .heading-font {
   color: black;
@@ -28,15 +28,22 @@ a:hover {
   text-decoration: underline black;
 }
 .app-container {
-  margin: 5%;
+  margin: 2%;
   text-align: center;
 }
-.store-container {
+.header {
+  width: 100%;
+}
+.store-nav {
+  display: flex;
+  justify-content: space-between;
+}
+.product-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 @media screen and (max-width: 720px) {
-  .store-container {
+  .product-container {
     grid-template-columns: 1fr;
   }
 }
@@ -44,7 +51,6 @@ a:hover {
   padding: 40px;
 }
 .product-card img {
-  float: left;
   width: 300px;
   height: 300px;
   object-fit: contain;
@@ -59,8 +65,10 @@ a:hover {
 }
 .product-info {
   display: grid;
+  align-items: center;
   grid-template-columns: 1fr 1fr;
-  padding: 5%;
+  width: 60%;
+  margin: auto;
 }
 .product-info .img-container {
   padding: 10%;

@@ -53,12 +53,18 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header query={query} onSearch={onSearch} setCategory={setCategory} />
+      <Header />
 
       <Route exact path="/">
         {/* make sure products load first */}
         {productsList ? (
-          <Store productResults={productResults} category={category} />
+          <Store
+            productResults={productResults}
+            query={query}
+            onSearch={onSearch}
+            category={category}
+            setCategory={setCategory}
+          />
         ) : (
           "still loading......."
         )}

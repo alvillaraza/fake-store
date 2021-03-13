@@ -1,5 +1,5 @@
 body {
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .heading-font {
@@ -33,16 +33,22 @@ a {
 }
 
 .app-container {
-    margin: 5%;
+  margin: 2%;
   text-align: center;
 }
 
-// Header //
-// Header //
+.header {
+  width: 100%;
+}
 
 // Store //
 // Store //
-.store-container {
+.store-nav {
+    display:flex;
+    justify-content: space-between;
+}
+
+.product-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
@@ -57,7 +63,6 @@ a {
   padding: 40px;
 
   img {
-    float: left;
     width: 300px;
     height: 300px;
     object-fit: contain;
@@ -77,8 +82,10 @@ a {
 // Product //
 .product-info {
   display: grid;
+  align-items: center;
   grid-template-columns: 1fr 1fr;
-  padding: 5%;
+  width: 60%;
+  margin: auto; // auto-spaces elements in all directions
 
   .img-container {
     padding: 10%;
@@ -99,8 +106,4 @@ a {
 
 .search-bar {
   text-align: right;
-
-  //   .search-input{
-  //       border: 1px solid black;
-  //   }
 }

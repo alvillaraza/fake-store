@@ -2,7 +2,7 @@ const SearchBar = ({ onSearch, placeholder, query }) => {
   return (
     <div className="search-bar">
       <span className="search-span">
-        <i class="fas fa-search"></i>
+        <i className="fas fa-search"></i>
       </span>
       <input
         className="search-input"

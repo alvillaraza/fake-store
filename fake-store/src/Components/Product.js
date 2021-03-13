@@ -33,12 +33,15 @@ function Product() {
   return (
     <div className="product-info">
       <div className="img-container">
-        <img src={product.image} alt="product-image" />
+        <img src={product.image} alt="product thumbnail" />
       </div>
 
       <div className="product-desc">
         <h2>{product.title}</h2>
-        <p>Price: {formatter.format(product.price)}</p>
+        <p>
+          PRICE:{" "}
+          <span className="price-value">{formatter.format(product.price)}</span>
+        </p>
         <p className="desc">
           {productDescription.charAt(0).toUpperCase() +
             productDescription.slice(1)}

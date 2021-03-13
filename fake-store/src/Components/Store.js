@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import SearchBar from "./SearchBar";
 
-
 function Store({ productResults, query, onSearch, category, setCategory }) {
   function handleChange(e) {
     setCategory(e.target.value);
@@ -28,25 +27,29 @@ function Store({ productResults, query, onSearch, category, setCategory }) {
         </form>
 
         <SearchBar query={query} placeholder="Search" onSearch={onSearch} />
-        </div>
-        <div className="product-container">
-          {productResults.map((product) => {
-            if (!category) {
-              return (
-                <Link key={product.id} to={`/product/${product.id}`}>
-                  <ProductCard product={product} />
-                </Link>
-              );
-            } else if (product.category === category) {
-              return (
-                <Link key={product.id} to={`/product/${product.id}`}>
-                  <ProductCard product={product} />
-                </Link>
-              );
-            }
-          })}
-        </div>
       </div>
+      <div className="product-container">
+        {productResults.map((product) => {
+          if (!category) {
+            return (
+              <Link key={product.id} to={`/product/${product.id}`}>
+                <ProductCard product={product} />
+              </Link>
+            );
+          }
+
+          if (product.category === category) {
+            return (
+              <Link key={product.id} to={`/product/${product.id}`}>
+                <ProductCard product={product} />
+              </Link>
+            );
+          }
+
+          return "";
+        })}
+      </div>
+    </div>
   );
 }
 

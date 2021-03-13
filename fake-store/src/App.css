@@ -54,14 +54,10 @@ a:hover {
   width: 300px;
   height: 300px;
   object-fit: contain;
+  transition-duration: 0.25s;
 }
-.product-card:hover {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  animation-name: example;
-  animation-duration: 0.25s;
-  border-left: 8px solid black;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+.product-card:hover img {
+  transform: scale(1.1);
 }
 .product-info {
   display: grid;
@@ -75,6 +71,10 @@ a:hover {
 }
 .product-info .desc {
   text-align: left;
+}
+.product-info .price-value {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 @media screen and (max-width: 720px) {
   .product-info {

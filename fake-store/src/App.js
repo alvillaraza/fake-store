@@ -55,9 +55,10 @@ function App() {
     <div className="app-container">
       <Header />
 
-      <Route exact path="/">
-        {/* make sure products load first */}
-        {productsList ? (
+      {productsList.length !== 0 ? (
+        <Route exact path="/">
+          {/* make sure products load first */}
+
           <Store
             productResults={productResults}
             query={query}
@@ -65,10 +66,10 @@ function App() {
             category={category}
             setCategory={setCategory}
           />
-        ) : (
-          "still loading......."
-        )}
-      </Route>
+        </Route>
+      ) : (
+        "It's unfolding..."
+      )}
 
       <Route path="/product/:id">
         <Product productsList={productsList} />

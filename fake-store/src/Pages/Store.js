@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import ProductCard from "./ProductCard";
-import SearchBar from "./SearchBar";
+import ProductCard from "../Components/ProductCard";
+import SearchBar from "../Components/SearchBar";
 
 function Store({ productResults, query, onSearch, category, setCategory }) {
   function handleChange(e) {

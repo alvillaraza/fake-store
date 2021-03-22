@@ -4,8 +4,8 @@ import axios from "axios";
 import Fuse from "fuse.js";
 
 import Header from "./Components/Header";
-import Store from "./Components/Store";
-import Product from "./Components/Product";
+import Store from "./Pages/Store";
+import Product from "./Pages/Product";
 
 import "./App.css";
 import "./Normalize.css";

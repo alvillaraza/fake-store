@@ -17,8 +17,15 @@ function App() {
 
   const getProducstList = () => {
     axios
-      .get("https://fakestoreapi.com/products")
+      .get("https://fakestoreapi.herokuapp.com/products")
       .then((response) => {
+       response.data.map((data) => {
+          data.image = data.image.replace(
+            "https://fakestoreapi.com/",
+            "https://fakestoreapi.herokuapp.com/"
+          );          
+          return data;
+        });
         setProductsList(response.data);
       })
       .catch((err) => {

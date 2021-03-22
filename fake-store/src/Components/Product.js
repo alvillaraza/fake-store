@@ -7,10 +7,19 @@ function Product() {
   const match = useRouteMatch();
 
   const fetchProduct = (id) => {
-    axios.get(`https://fakestoreapi.com/products/${id}`).then((response) => {
-      console.log("res", response.data);
-      setProduct(response.data);
-    });
+    axios
+      .get(`https://fakestoreapi.herokuapp.com/products/${id}`)
+      .then((response) => {
+        response.data.image = response.data.image.replace(
+          "https://fakestoreapi.com/",
+          "https://fakestoreapi.herokuapp.com/"
+          );
+          
+          setProduct(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouteMatch } from "react-router-dom";
 
+import AddToCart from '../Components/AddToCart';
+
 function Product() {
   const [product, setProduct] = useState(null);
   const match = useRouteMatch();
@@ -34,7 +36,7 @@ function Product() {
   const productDescription = product.description;
 
   //Added to make sure price is formatted correctly
-  var formatter = new Intl.NumberFormat("en-US", {
+  const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
@@ -48,7 +50,7 @@ function Product() {
       <div className="product-desc">
         <h2>{product.title}</h2>
         <p>
-          PRICE:{" "}
+          PRICE:
           <span className="price-value">{formatter.format(product.price)}</span>
         </p>
         <p className="desc">
@@ -56,6 +58,7 @@ function Product() {
             productDescription.slice(1)}
         </p>
       </div>
+      <AddToCart product={product} />
     </div>
   );
 }

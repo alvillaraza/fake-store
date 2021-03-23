@@ -79,7 +79,7 @@ function App() {
       )}
 
       <Route path="/product/:id">
-        <Product productsList={productsList} />
+        <Product />
       </Route>
     </div>
   );

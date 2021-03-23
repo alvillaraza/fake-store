@@ -1,4 +1,4 @@
-function Cart({ cart }) {
+function Cart({cart}) {
   console.log("cart items", cart);
 
   const formatter = new Intl.NumberFormat("en-US", {
@@ -10,9 +10,10 @@ function Cart({ cart }) {
     <div>
       {cart.map((cartItem) => {
         return (
-          <div className="cart">
+            <div className="cart" key={cartItem.id}>
+                This is the cart
             <img src={cartItem.image} alt="product thumbnail" />
-            <h2 key={cartItem.id}>{cartItem.title}</h2>
+            <h2 >{cartItem.title}</h2>
 
             <p>
               PRICE:

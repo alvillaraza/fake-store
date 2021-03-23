@@ -4,7 +4,7 @@ import { useRouteMatch } from "react-router-dom";
 
 import AddToCart from '../Components/AddToCart';
 
-function Product() {
+function Product({cart, setCart}) {
   const [product, setProduct] = useState(null);
   const match = useRouteMatch();
 
@@ -41,6 +41,8 @@ function Product() {
     currency: "USD",
   });
 
+ 
+
   return (
     <div className="product-info">
       <div className="img-container">
@@ -58,7 +60,7 @@ function Product() {
             productDescription.slice(1)}
         </p>
       </div>
-      <AddToCart product={product} />
+      <AddToCart product={product} setCart={setCart} cart={cart} />
     </div>
   );
 }

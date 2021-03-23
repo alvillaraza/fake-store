@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import Cart from '../Pages/Cart';
+import Cart from "../Pages/Cart";
 
-function AddToCart({ product }) {
-    const [cart, setCart] = useState([]);
-    
+function AddToCart({ product, cart, setCart }) {
+  
 
-    function addItem() {
-        setCart([product])
+   function addItem() {
+     setCart([...cart, product]);
    }
-    
-    // console.log('cart', cart);
-    
+console.log(cart);
   return (
     <div>
-          <button onClick={addItem}>Add To Cart</button>
-          <Cart cart={cart} />
-      </div>
+      <button onClick={addItem}>Add To Cart</button>
+
+      {/* <Cart cart={cart} /> */}
+    </div>
   );
 }
 

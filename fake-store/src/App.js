@@ -6,6 +6,7 @@ import Fuse from "fuse.js";
 import Header from "./Components/Header";
 import Store from "./Pages/Store";
 import Product from "./Pages/Product";
+import Cart from "./Pages/Cart";
 
 import "./App.css";
 import "./Normalize.css";
@@ -14,6 +15,7 @@ function App() {
   const [productsList, setProductsList] = useState([]);
   const [category, setCategory] = useState("");
   const [query, updateQuery] = useState("");
+  const [cart, setCart] = useState([]);
 
   const getProducstList = () => {
     axios
@@ -79,8 +81,13 @@ function App() {
       )}
 
       <Route path="/product/:id">
-        <Product productsList={productsList} />
+        <Product cart={cart} setCart={setCart} />
       </Route>
+
+      <Route path="/cart">
+        <Cart cart={cart} />
+      </Route>
+     
     </div>
   );
 }

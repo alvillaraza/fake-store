@@ -1,29 +1,44 @@
-function Cart({cart}) {
+import { Link } from "react-router-dom";
+
+function Cart({ cart }) {
   console.log("cart items", cart);
 
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
+  function removeItem() {}
+
+  function cartTotal() {
+    return cart
+      .reduce((acc, value) => {
+        return acc + value.price;
+      }, 0)
+      .toFixed(2);
+  }
 
   return (
-    <div>
+    <div className="cart-container">
       {cart.map((cartItem) => {
         return (
+          <Link to={`/product/${cartItem.id}`}>
             <div className="cart" key={cartItem.id}>
-                This is the cart
-            <img src={cartItem.image} alt="product thumbnail" />
-            <h2 >{cartItem.title}</h2>
-
-            <p>
-              PRICE:
-              <span className="price-value">
-                {formatter.format(cartItem.price)}
-              </span>
-            </p>
-          </div>
+              <div className="img-container">
+                <img src={cartItem.image} alt="product thumbnail" />
+              </div>
+              <div>{cartItem.title}</div>
+              <p>
+                PRICE:
+                <span className="price-value">
+                  ${cartItem.price.toFixed(2)}
+                </span>
+              </p>
+              <div>
+                <button className="cart-button">Remove</button>
+              </div>
+            </div>
+          </Link>
         );
       })}
+      
+        <p>Total: ${cartTotal()}</p>
+      
     </div>
   );
 }

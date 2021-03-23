@@ -37,8 +37,15 @@ a {
   text-align: center;
 }
 
+// .header {
+//   width: 100%;
+// }
+// Header //
+// Header //
 .header {
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 
 // Store //
@@ -109,4 +116,19 @@ a {
 
 .search-bar {
   text-align: right;
+}
+
+// Cart //
+// Cart //
+.cart {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 30px;
+
+  .img-container {
+    width: 20%;
+    // padding: 10px;
+  }
 }

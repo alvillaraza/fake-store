@@ -5,11 +5,23 @@ import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
+import { applyMiddleware, createStore } from "redux";
+import { Provider } from "react-redux";
+import logger from "redux-logger";
+import reducers from "./reducers/reducers";
+import thunk from 'redux-thunk';
+
+const store = createStore(reducers, applyMiddleware(logger, thunk));
+console.log('store', store.getState());
+
 ReactDOM.render(
   // <React.StrictMode>
-  <Router>
-    <App />
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+
   // </React.StrictMode>,
   document.getElementById("root")
 );

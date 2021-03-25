@@ -8,7 +8,7 @@ function Header() {
         <h1> Faux Boutique</h1>
       </Link>
       <Link to="/cart">
-        <i class="fas fa-shopping-cart fa-2x"></i>
+        <i className="fas fa-shopping-cart fa-2x"></i>
       </Link>
     </div>
   );

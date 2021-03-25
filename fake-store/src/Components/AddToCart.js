@@ -5,7 +5,6 @@ function AddToCart({ product, cart, setCart }) {
   function addItem() {
     setCart([...cart, product]);
   }
-  console.log(cart);
   return (
     <div>
       <Link to="/cart">

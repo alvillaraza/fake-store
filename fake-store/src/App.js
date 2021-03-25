@@ -3,10 +3,10 @@ import { Route } from "react-router-dom";
 import axios from "axios";
 import Fuse from "fuse.js";
 
-import Header from "./Components/Header";
-import Store from "./Pages/Store";
-import Product from "./Pages/Product";
-import Cart from "./Pages/Cart";
+import Header from "./components/Header";
+import Store from "./pages/Store";
+import Product from "./pages/Product";
+import Cart from "./pages/Cart";
 
 import "./App.css";
 import "./Normalize.css";

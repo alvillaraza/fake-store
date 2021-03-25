@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 
 function Cart({ cart, setCart }) {
+
   function removeItem(cartItem) {
-    setCart(
-      cart.filter((item) => {
-        return item.id !== cartItem.id;
-      })
-    );
+    const index = cart.indexOf(cartItem);
+    if (index > -1) {
+      cart.splice(index, 1);
+      console.log(cart);
+    }
+   return setCart(cart)
   }
 
   function cartTotal() {

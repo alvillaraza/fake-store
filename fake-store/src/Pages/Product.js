@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouteMatch } from "react-router-dom";
 
-import AddToCart from '../Components/AddToCart';
+import AddToCart from '../components/AddToCart';
 
 function Product({cart, setCart}) {
   const [product, setProduct] = useState(null);

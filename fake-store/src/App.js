@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
-import { connect } from 'react-redux';
 import axios from "axios";
 import Fuse from "fuse.js";
 
@@ -9,12 +8,11 @@ import Store from "./pages/Store";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 
-import { fetchAllProducts } from './actions/actions';
 
 import "./App.css";
 import "./Normalize.css";
 
-function App(props) {
+function App() {
   // const [productsList, setProductsList] = useState([]);
   // const [category, setCategory] = useState("");
   // const [query, updateQuery] = useState("");
@@ -61,16 +59,15 @@ function App(props) {
   // End of Search Functionality
   // End of Search Functionality
 
-  useEffect(() => {
-  props.fetchAllProducts()
-}, [])
+
   return (
     <div className="app-container">
       <Header />
-      {  console.log('props', props)}
-      <button onClick={() => this.props.fetchAllProducts(this.state.products)}>Show Products</button>
      
-
+     
+      <Route exact path="/">
+        <Store />
+</Route>
       {/* {productsList.length !== 0 ? (
         <Route exact path="/">
 
@@ -98,9 +95,6 @@ function App(props) {
   );
 }
 
-const mapStateToProps = state => {
-  console.log('state', state);
-  return {products: state.products}
-}
 
-export default connect(mapStateToProps, {fetchAllProducts})(App);
+
+export default App;

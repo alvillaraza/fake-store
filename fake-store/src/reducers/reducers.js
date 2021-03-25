@@ -5,7 +5,7 @@ import {
 } from "../actions/actions";
 
 const initialState = {
-  products: "",
+  products: [],
 
   //     title: "",
   //   description: "",
@@ -15,7 +15,6 @@ const initialState = {
 };
 
 function reducers(state = initialState, action) {
-  console.log("action!", action);
   switch (action.type) {
     case FETCH_ALL_PRODUCTS_LOADING:
       return {

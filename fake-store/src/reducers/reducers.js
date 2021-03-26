@@ -2,12 +2,13 @@ import {
   FETCH_ALL_PRODUCTS_LOADING,
   FETCH_ALL_PRODUCTS_SUCCESS,
   FETCH_ALL_PRODUCTS_FAILURE,
+  FETCH_ONE_PRODUCT_SUCCESS,
   UPDATE_CATEGORY,
 } from "../actions/actions";
 
 const initialState = {
-    products: [],
-    currentCategory: "",
+  products: [],
+  currentCategory: "",
 
   isFetching: false,
   error: null,
@@ -31,11 +32,11 @@ function reducers(state = initialState, action) {
         ...state,
         error: action.payload,
       };
-      case UPDATE_CATEGORY:
-          return {
-              ...state,
-              currentCategory: action.payload,
-          }
+    case UPDATE_CATEGORY:
+      return {
+        ...state,
+        currentCategory: action.payload,
+      };
     default:
       return state;
   }

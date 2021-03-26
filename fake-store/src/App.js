@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Route } from "react-router-dom";
-import axios from "axios";
-import Fuse from "fuse.js";
+// import Fuse from "fuse.js";
 
 import Header from "./components/Header";
 import Store from "./pages/Store";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
-
 
 import "./App.css";
 import "./Normalize.css";
@@ -25,7 +23,7 @@ function App() {
   //         data.image = data.image.replace(
   //           "https://fakestoreapi.com/",
   //           "https://fakestoreapi.herokuapp.com/"
-  //         );          
+  //         );
   //         return data;
   //       });
   //       setProductsList(response.data);
@@ -34,8 +32,6 @@ function App() {
   //       console.log(err);
   //     });
   // };
-
-
 
   // Start of Search Functionality
   // Start of Search Functionality
@@ -58,15 +54,13 @@ function App() {
   // End of Search Functionality
   // End of Search Functionality
 
-
   return (
     <div className="app-container">
       <Header />
-     
-     
+
       <Route exact path="/">
         <Store />
-</Route>
+      </Route>
       {/* {productsList.length !== 0 ? (
         <Route exact path="/">
 
@@ -85,15 +79,12 @@ function App() {
       <Route path="/product/:id">
         <Product />
       </Route>
- {/*
+      {/*
       <Route path="/cart">
         <Cart cart={cart} setCart={setCart} />
       </Route> */}
-     
     </div>
   );
 }
-
-
 
 export default App;

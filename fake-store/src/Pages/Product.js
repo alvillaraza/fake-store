@@ -11,7 +11,6 @@ function Product(props) {
 
   useEffect(() => {
     fetchAllProducts(match.params.id);
-    console.log("match.params.id", match.params.id);
   }, [match.params.id]);
 
   if (!props.products) {
@@ -43,6 +42,8 @@ function Product(props) {
               <AddToCart product={product} />
             </>
           );
+        } else {
+          return ""
         }
       })}
     </div>

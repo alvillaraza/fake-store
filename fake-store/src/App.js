@@ -11,27 +11,10 @@ import "./App.css";
 import "./Normalize.css";
 
 function App() {
-  // const [category, setCategory] = useState("");
   // const [query, updateQuery] = useState("");
   // const [cart, setCart] = useState([]);
 
-  // const getProducstList = () => {
-  //   axios
-  //     .get("https://fakestoreapi.herokuapp.com/products")
-  //     .then((response) => {
-  //      response.data.map((data) => {
-  //         data.image = data.image.replace(
-  //           "https://fakestoreapi.com/",
-  //           "https://fakestoreapi.herokuapp.com/"
-  //         );
-  //         return data;
-  //       });
-  //       setProductsList(response.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+
 
   // Start of Search Functionality
   // Start of Search Functionality
@@ -79,10 +62,10 @@ function App() {
       <Route path="/product/:id">
         <Product />
       </Route>
-      {/*
+      
       <Route path="/cart">
-        <Cart cart={cart} setCart={setCart} />
-      </Route> */}
+        <Cart />
+      </Route>
     </div>
   );
 }

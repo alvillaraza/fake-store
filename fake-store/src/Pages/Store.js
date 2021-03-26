@@ -4,14 +4,11 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import ProductCard from "../components/ProductCard";
-import Product from '../pages/Product';
 // import SearchBar from "../components/SearchBar";
+
 import { fetchAllProducts, updateCategory } from "../actions/actions";
 
-function Store(
-  props
-  // { productResults, query, onSearch, category, setCategory }
-) {
+function Store(props) {
   useEffect(() => {
     props.fetchAllProducts();
   }, []);
@@ -37,7 +34,7 @@ function Store(
           </select>
         </form>
       </div>
-      <div className="product-container">
+      <div className="product-container" >
         {props.products.map((product) => {
           if (!props.currentCategory) {
             return (

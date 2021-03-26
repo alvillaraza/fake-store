@@ -1,27 +1,31 @@
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-function Cart({ cart, setCart }) {
 
-  function removeItem(cartItem) {
-    const index = cart.indexOf(cartItem);
-    if (index > -1) {
-      cart.splice(index, 1);
-      console.log(cart);
-    }
-   return setCart(cart)
-  }
 
-  function cartTotal() {
-    return cart
-      .reduce((acc, value) => {
-        return acc + value.price;
-      }, 0)
-      .toFixed(2);
-  }
+function Cart(props) {
+
+  // function removeItem(cartItem) {
+  //   const index = props.cart.indexOf(cartItem);
+  //   if (index > -1) {
+  //     props.cart.splice(index, 1);
+  //   }
+  //  return setCart(cart)
+  // }
+
+  // function cartTotal() {
+  //   return cart
+  //     .reduce((acc, value) => {
+  //       return acc + value.price;
+  //     }, 0)
+  //     .toFixed(2);
+  // }
 
   return (
     <div className="cart-container">
-      {cart.map((cartItem) => {
+      {console.log('props in cart', props.cart)}
+  
+      {props.cart.map((cartItem) => {
         return (
           <div className="cart" key={cartItem.id}>
             <Link to={`/product/${cartItem.id}`}>
@@ -37,7 +41,7 @@ function Cart({ cart, setCart }) {
             <div>
               <button
                 className="cart-button"
-                onClick={() => removeItem(cartItem)}
+                
               >
                 Remove
               </button>
@@ -46,9 +50,16 @@ function Cart({ cart, setCart }) {
         );
       })}
 
-      <p>Total: ${cartTotal()}</p>
+      <p>Total: ${}</p>
     </div>
   );
 }
 
-export default Cart;
+const mapStateToProps = (state) => {
+  return {
+    products: state.products,
+    cart: state.cart,
+  };
+};
+
+export default connect(mapStateToProps)(Cart);

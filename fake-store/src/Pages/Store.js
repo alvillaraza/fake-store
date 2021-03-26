@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
-import { fetchAllProducts } from "../actions/actions";
+import { fetchAllProducts, updateCategory } from "../actions/actions";
 
 function Store(
   props
@@ -15,36 +15,47 @@ function Store(
     props.fetchAllProducts();
   }, []);
 
-  // function handleChange(e) {
-  //   setCategory(e.target.value);
-  // }
+  function handleChange(e) {
+    props.updateCategory(e.target.value);
+  }
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  // }
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
 
   return (
     <div className="store-container">
       <div className="store-nav">
         <div className="product-container">
-        {props.products.map((product) => {
-          return (
-            <Link key={product.id} to={`/product/${product.id}`}>
-              <ProductCard product={product} />
-            </Link>
-          );
-        })}
-        {/* <form onSubmit={handleSubmit}>
-          <select onChange={handleChange} value={category}>
-            <option value="">See all Products</option>
-            <option value="electronics">Electronics</option>
-            <option value="jewelery">Jewelry</option>
-            <option value="men clothing">Men's Clothing</option>
-            <option value="women clothing">Women's Clothing</option>
-          </select>
-        </form>
+          <form onSubmit={handleSubmit}>
+            <select onChange={handleChange} value={props.currentCategory}>
+              {console.log('current category', props.currentCategory)}
+              <option value="">See all Products</option>
+              <option value="electronics">Electronics</option>
+              <option value="jewelery">Jewelry</option>
+              <option value="men clothing">Men's Clothing</option>
+              <option value="women clothing">Women's Clothing</option>
+            </select>
+          </form>
 
-        <SearchBar query={query} placeholder="Search" onSearch={onSearch} />
+          {props.products.map((product) => {
+             if (!props.currentCategory) {
+               return (
+                 <Link key={product.id} to={`/product/${product.id}`}>
+                   <ProductCard product={product} />
+                 </Link>
+               );
+             }
+            if (product.category === props.currentCategory) {
+            return (
+              <Link key={product.id} to={`/product/${product.id}`}>
+                <ProductCard product={product} />
+              </Link>
+            )};
+            return "";
+          })}
+
+          {/*   <SearchBar query={query} placeholder="Search" onSearch={onSearch} />
         {productResults.map((product) => {
           if (!category) {
             return (
@@ -54,7 +65,6 @@ function Store(
               );
             }
             
-            if (product.category === category) {
               return (
                 <Link key={product.id} to={`/product/${product.id}`}>
                 <ProductCard product={product} />
@@ -62,15 +72,14 @@ function Store(
                 );
               }
               
-              return "";
             })} */}
-            </div>
+        </div>
       </div>
     </div>
   );
 }
 const mapStateToProps = (state) => {
-  return { products: state.products };
+  return { products: state.products, currentCategory: state.currentCategory };
 };
 
-export default connect(mapStateToProps, { fetchAllProducts })(Store);
+export default connect(mapStateToProps, { fetchAllProducts, updateCategory })(Store);

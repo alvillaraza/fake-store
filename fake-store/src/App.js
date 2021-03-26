@@ -13,7 +13,6 @@ import "./App.css";
 import "./Normalize.css";
 
 function App() {
-  // const [productsList, setProductsList] = useState([]);
   // const [category, setCategory] = useState("");
   // const [query, updateQuery] = useState("");
   // const [cart, setCart] = useState([]);
@@ -83,10 +82,10 @@ function App() {
         "It's unfolding..."
       )} */}
 
-      {/* <Route path="/product/:id">
-        <Product cart={cart} setCart={setCart} />
+      <Route path="/product/:id">
+        <Product />
       </Route>
-
+ {/*
       <Route path="/cart">
         <Cart cart={cart} setCart={setCart} />
       </Route> */}

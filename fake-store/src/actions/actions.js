@@ -6,6 +6,7 @@ export const FETCH_ALL_PRODUCTS_FAILURE = "FETCH_ALL_PRODUCTS_FAILURE";
 export const FETCH_ONE_PRODUCT_SUCCESS = "FETCH_ALL_PRODUCTS_SUCCESS";
 export const UPDATE_CATEGORY = "UPDATE_CATEGORY";
 export const ADD_TO_CART = "ADD_TO_CART";
+export const UPDATE_CART_TOTAL = "UPDATE_CART_TOTAL";
 
 export const fetchAllProducts = () => (dispatch) => {
     dispatch({ type: FETCH_ALL_PRODUCTS_LOADING });
@@ -25,6 +26,6 @@ export const updateCategory = (category) => (dispatch) => {
 }
 
 export const addToCart = (newCartItem) => (dispatch) => {
-    dispatch({ type: ADD_TO_CART, payload: newCartItem });
-    //grab axios url/${productID}
+    dispatch({ type: ADD_TO_CART, payload: newCartItem});
+    // dispatch({type: UPDATE_CART_TOTAL, payload: newCartItem})
 }

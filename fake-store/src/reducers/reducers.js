@@ -2,14 +2,16 @@ import {
   FETCH_ALL_PRODUCTS_LOADING,
   FETCH_ALL_PRODUCTS_SUCCESS,
   FETCH_ALL_PRODUCTS_FAILURE,
-  ADD_TO_CART,
   UPDATE_CATEGORY,
+  ADD_TO_CART,
+  UPDATE_CART_TOTAL,
 } from "../actions/actions";
 
 const initialState = {
   products: [],
   currentCategory: "",
   cart: [],
+  cartTotal: 0,
 
   isFetching: false,
   error: null,
@@ -41,8 +43,13 @@ function reducers(state = initialState, action) {
     case ADD_TO_CART:
       return {
         ...state,
-        cart: [...state.cart, action.payload]
+          cart: [...state.cart, action.payload],
+          cartTotal: state.cartTotal + action.payload.price
       };
+    //   case UPDATE_CART_TOTAL:
+    //       return {
+    //           ...state,
+    //       }
     default:
       return state;
   }

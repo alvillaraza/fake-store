@@ -14,7 +14,7 @@ function Cart(props) {
   // }
 
   // function cartTotal() {
-  //   return cart
+  //   return props.cart
   //     .reduce((acc, value) => {
   //       return acc + value.price;
   //     }, 0)
@@ -49,8 +49,7 @@ function Cart(props) {
           </div>
         );
       })}
-
-      <p>Total: ${}</p>
+      <p>Total: ${props.cartTotal}</p>
     </div>
   );
 }
@@ -59,6 +58,7 @@ const mapStateToProps = (state) => {
   return {
     products: state.products,
     cart: state.cart,
+    cartTotal: state.cartTotal,
   };
 };
 

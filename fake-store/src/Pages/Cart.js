@@ -1,30 +1,30 @@
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-
+import { removeFromCart } from "../actions/actions";
 
 function Cart(props) {
+  // console.log('cart props id', props.cart.title);
+  const removeCartItem = props.cart;
 
-  // function removeItem(cartItem) {
-  //   const index = props.cart.indexOf(cartItem);
-  //   if (index > -1) {
-  //     props.cart.splice(index, 1);
-  //   }
-  //  return setCart(cart)
-  // }
+  function removeItem(removeCartItem) {
+    console.log("running remove Item");
+    props.removeFromCart(removeCartItem);
+    //right now this is removing all cart items, "removeCartItem" is anything that is in props.cart
 
-  // function cartTotal() {
-  //   return props.cart
-  //     .reduce((acc, value) => {
-  //       return acc + value.price;
-  //     }, 0)
-  //     .toFixed(2);
-  // }
+    //   const index = props.cart.indexOf(cartItem);
+    //   if (index > -1) {
+    //     props.cart.splice(index, 1);
+    //   }
+    //  return setCart(cart)
+    // }
+
+    // if (props.cart.length <= 0) {
+    //   return ('no items in cart')
+  }
 
   return (
     <div className="cart-container">
-      {console.log('props in cart', props.cart)}
-  
       {props.cart.map((cartItem) => {
         return (
           <div className="cart" key={cartItem.id}>
@@ -39,9 +39,12 @@ function Cart(props) {
               <span className="price-value">${cartItem.price.toFixed(2)}</span>
             </p>
             <div>
+              {/* this needs to have something that chooses the specific item it's on */}
               <button
                 className="cart-button"
-                
+                onClick={() => removeCartItem.map(item => {if (item.id === cartItem.id) {
+                  return removeItem(item)
+                }})}
               >
                 Remove
               </button>
@@ -62,4 +65,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, { removeFromCart })(Cart);

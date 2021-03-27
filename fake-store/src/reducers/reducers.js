@@ -4,7 +4,7 @@ import {
   FETCH_ALL_PRODUCTS_FAILURE,
   UPDATE_CATEGORY,
   ADD_TO_CART,
-  UPDATE_CART_TOTAL,
+  REMOVE_FROM_CART,
 } from "../actions/actions";
 
 const initialState = {
@@ -43,13 +43,18 @@ function reducers(state = initialState, action) {
     case ADD_TO_CART:
       return {
         ...state,
-          cart: [...state.cart, action.payload],
-          cartTotal: state.cartTotal + action.payload.price
+        cart: [...state.cart, action.payload],
+        cartTotal: state.cartTotal + action.payload.price,
       };
-    //   case UPDATE_CART_TOTAL:
-    //       return {
-    //           ...state,
-    //       }
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter((eachItem) => {
+          return eachItem.id !== action.payload.id;
+        }),
+        cartTotal: state.cartTotal - action.payload.price
+      };
+
     default:
       return state;
   }

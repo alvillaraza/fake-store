@@ -3,16 +3,16 @@ import { connect } from "react-redux";
 import { addToCart } from "../actions/actions";
 
 function AddToCart(props) {
-  const newCartItem = props.product
+  const addCartItem = props.product;
   
-  function addItem(newCartItem) {
-    props.addToCart(newCartItem);
+  function addItem(addCartItem) {
+    props.addToCart(addCartItem);
   }
 
   return (
     <div>
       <Link to="/cart">
-        <button className="cart-button" onClick={() => addItem(newCartItem)}>Add To Cart</button>
+        <button className="cart-button" onClick={() => addItem(addCartItem)}>Add To Cart</button>
       </Link>
 
     </div>

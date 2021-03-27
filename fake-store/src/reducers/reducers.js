@@ -5,6 +5,7 @@ import {
   UPDATE_CATEGORY,
   ADD_TO_CART,
   REMOVE_FROM_CART,
+  UPDATE_QUERY,
 } from "../actions/actions";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   currentCategory: "",
   cart: [],
   cartTotal: 0,
+  currentQuery: "",
 
   isFetching: false,
   error: null,
@@ -49,10 +51,18 @@ function reducers(state = initialState, action) {
     case REMOVE_FROM_CART:
       return {
         ...state,
+        //need to figure out what to do when there's multiples of the same item, should we do a quantity state?
         cart: state.cart.filter((eachItem) => {
           return eachItem.id !== action.payload.id;
         }),
-        cartTotal: state.cartTotal - action.payload.price
+        // need to fix this so that it doesn't come up with a weird long number at times
+        cartTotal: state.cartTotal - action.payload.price,
+      };
+      case UPDATE_QUERY:
+          console.log(action.payload);
+      return {
+          ...state,
+          currentQuery: action.payload
       };
 
     default:

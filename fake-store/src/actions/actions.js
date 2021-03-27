@@ -7,6 +7,7 @@ export const FETCH_ONE_PRODUCT_SUCCESS = "FETCH_ALL_PRODUCTS_SUCCESS";
 export const UPDATE_CATEGORY = "UPDATE_CATEGORY";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+export const UPDATE_QUERY = "UPDATE_QUERY";
 
 export const fetchAllProducts = () => (dispatch) => {
     dispatch({ type: FETCH_ALL_PRODUCTS_LOADING });
@@ -31,4 +32,8 @@ export const addToCart = (addCartItem) => (dispatch) => {
 
 export const removeFromCart = (removeCartItem) => (dispatch) => {
     dispatch({type: REMOVE_FROM_CART, payload: removeCartItem})
+}
+
+export const updateQuery = (query) => dispatch => {
+    dispatch({type: UPDATE_QUERY, payload: query})
 }

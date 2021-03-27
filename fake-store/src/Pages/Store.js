@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import ProductCard from "../components/ProductCard";
-// import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/SearchBar";
 
 import { fetchAllProducts, updateCategory } from "../actions/actions";
 
@@ -33,8 +33,11 @@ function Store(props) {
             <option value="women clothing">Women's Clothing</option>
           </select>
         </form>
+        <div>
+          <SearchBar placeholder="Search" />
+        </div>
       </div>
-      <div className="product-container" >
+      <div className="product-container">
         {props.products.map((product) => {
           if (!props.currentCategory) {
             return (
@@ -52,25 +55,6 @@ function Store(props) {
           }
           return "";
         })}
-
-        {/*   <SearchBar query={query} placeholder="Search" onSearch={onSearch} />
-        {productResults.map((product) => {
-          if (!category) {
-            return (
-              <Link key={product.id} to={`/product/${product.id}`}>
-              <ProductCard product={product} />
-              </Link>
-              );
-            }
-            
-              return (
-                <Link key={product.id} to={`/product/${product.id}`}>
-                <ProductCard product={product} />
-                </Link>
-                );
-              }
-              
-            })} */}
       </div>
     </div>
   );

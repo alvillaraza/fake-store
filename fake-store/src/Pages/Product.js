@@ -4,7 +4,7 @@ import { fetchAllProducts } from "../actions/actions";
 
 import { useRouteMatch } from "react-router-dom";
 
-import AddToCart from "../components/AddToCart";
+import AddToCartButton from "../components/AddToCart";
 
 function Product(props) {
   const match = useRouteMatch();
@@ -19,12 +19,12 @@ function Product(props) {
 
   return (
     <div className="product-info">
-      {props.products.map((product) => {
+      {props.products.map((product, index) => {
         // Added this to make sure that product descriptions must start with capital letter
         const productDescription = product.description;
         if (parseInt(match.params.id) === product.id) {
           return (
-            <>
+            <React.Fragment key={product.id + index}>
               <div className="img-container">
                 <img src={product.image} alt="product thumbnail" />
               </div>
@@ -39,11 +39,11 @@ function Product(props) {
                     productDescription.slice(1)}
                 </p>
               </div>
-              <AddToCart product={product} />
-            </>
+              <AddToCartButton id={product.id}/>
+            </React.Fragment>
           );
         } else {
-          return ""
+          return "";
         }
       })}
     </div>

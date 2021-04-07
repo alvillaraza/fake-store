@@ -5,13 +5,19 @@ import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, createStore, combineReducers } from "redux";
+import thunk from "redux-thunk";
 import { Provider } from "react-redux";
-import logger from "redux-logger";
 import reducers from "./reducers/reducers";
-import thunk from 'redux-thunk';
+import cartReducer from "./reducers/cartReducer";
+// import logger from "redux-logger";
 
-const store = createStore(reducers, applyMiddleware(logger, thunk));
+// const rootReducer = combineReducers({
+//   reducers,
+//   cartReducer,
+// });
+// const store = createStore(reducers, applyMiddleware(logger, thunk));
+const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   // <React.StrictMode>
@@ -21,7 +27,7 @@ ReactDOM.render(
     </Router>
   </Provider>,
 
-  // </React.StrictMode>,
+  //  </React.StrictMode>,
   document.getElementById("root")
 );
 

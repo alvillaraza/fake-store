@@ -3,16 +3,13 @@ import {
   FETCH_ALL_PRODUCTS_SUCCESS,
   FETCH_ALL_PRODUCTS_FAILURE,
   UPDATE_CATEGORY,
-  ADD_TO_CART,
-  REMOVE_FROM_CART,
   UPDATE_QUERY,
+  ADD_TO_CART,
 } from "../actions/actions";
 
 const initialState = {
   products: [],
   currentCategory: "",
-  cart: [],
-  cartTotal: 0,
   currentQuery: "",
 
   isFetching: false,
@@ -42,29 +39,26 @@ function reducers(state = initialState, action) {
         ...state,
         currentCategory: action.payload,
       };
-    case ADD_TO_CART:
+
+    case UPDATE_QUERY:
       return {
         ...state,
-        cart: [...state.cart, action.payload],
-        cartTotal: state.cartTotal + action.payload.price,
-      };
-    case REMOVE_FROM_CART:
-      return {
-        ...state,
-        //need to figure out what to do when there's multiples of the same item, should we do a quantity state?
-        cart: state.cart.filter((eachItem) => {
-          return eachItem.id !== action.payload.id;
-        }),
-        // need to fix this so that it doesn't come up with a weird long number at times
-        cartTotal: state.cartTotal - action.payload.price,
-      };
-      case UPDATE_QUERY:
-          console.log(action.payload);
-      return {
-          ...state,
-          currentQuery: action.payload
+        currentQuery: action.payload,
       };
 
+    case ADD_TO_CART:
+      let productsCopy = [...state.products];
+      productsCopy.forEach((product) => {
+        if (product.id === action.payload) {
+          product.qty = product.qty + 1;
+          product.inCart = true;
+        }
+      });
+
+      return {
+        ...state,
+        products: productsCopy,
+      };
     default:
       return state;
   }

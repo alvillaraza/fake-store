@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import Fuse from "fuse.js";
 
 
-import ProductCard from "../Ccomponents/ProductCard";
-import SearchBar from "../Ccomponents/SearchBar";
+import ProductCard from "../components/ProductCard";
+import SearchBar from "../components/SearchBar";
 
 import {  updateCategory } from "../actions/actions";
 

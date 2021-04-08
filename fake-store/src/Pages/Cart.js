@@ -5,16 +5,20 @@ import { connect } from "react-redux";
 
 function Cart(props) {
 
-
+console.log(props);
 
 
   return (
 
-    <div>
+    <div className='cart-container'>
       {props.products.map(product => {
         if (product.inCart === true) {
           return (
-            <div>{product.title}</div>
+            <div className='cart' key={product.id}>
+              <div className='img-container'><img src={product.image} alt='product' /></div>
+             <div> {product.title}</div>
+              <div>qty: {product.qty}</div>
+            </div>
           )
           console.log(product)
         }

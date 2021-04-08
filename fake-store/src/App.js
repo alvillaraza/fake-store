@@ -1,17 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Route } from "react-router-dom";
-
+// import { connect } from 'react-redux';
 
 import Header from "./components/Header";
 import Store from "./pages/Store";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 
+import { fetchAllProducts } from "./actions/actions";
+
 import "./App.css";
 import "./Normalize.css";
+import { connect } from "react-redux";
 
-function App() {
- 
+function App(props) {
+   useEffect(() => {
+     props.fetchAllProducts();
+   }, []);
 
   return (
     <div className="app-container">
@@ -32,5 +37,8 @@ function App() {
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return { products: state.products};
+};
 
-export default App;
+export default connect(mapStateToProps, {fetchAllProducts}) (App);

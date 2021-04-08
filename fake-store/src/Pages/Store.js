@@ -6,12 +6,10 @@ import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
 
-import { fetchAllProducts, updateCategory } from "../actions/actions";
+import {  updateCategory } from "../actions/actions";
 
 function Store(props) {
-  useEffect(() => {
-    props.fetchAllProducts();
-  }, []);
+
 
   function handleChange(e) {
     props.updateCategory(e.target.value);
@@ -63,6 +61,6 @@ const mapStateToProps = (state) => {
   return { products: state.products, currentCategory: state.currentCategory };
 };
 
-export default connect(mapStateToProps, { fetchAllProducts, updateCategory })(
+export default connect(mapStateToProps, { updateCategory })(
   Store
 );

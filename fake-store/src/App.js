@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { Route } from "react-router-dom";
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import Header from "./components/Header";
 import Store from "./pages/Store";
@@ -11,7 +11,6 @@ import { fetchAllProducts } from "./actions/actions";
 
 import "./App.css";
 import "./Normalize.css";
-import { connect } from "react-redux";
 
 function App(props) {
    useEffect(() => {

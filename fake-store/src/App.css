@@ -32,7 +32,9 @@ a:hover {
   text-align: center;
 }
 .header {
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 .store-nav {
   display: flex;
@@ -84,4 +86,17 @@ a:hover {
 }
 .search-bar {
   text-align: right;
+}
+.cart {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 30px;
+}
+.cart .img-container {
+  width: 30%;
+}
+.cart button {
+  margin: 11px;
 }

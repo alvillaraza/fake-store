@@ -1,23 +1,33 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import { Link } from "react-router-dom";
 
-import ProductCard from "../Components/ProductCard";
-import SearchBar from "../Components/SearchBar";
+import ProductCard from "../components/ProductCard";
+import SearchBar from "../components/SearchBar";
 
-function Store({ productResults, query, onSearch, category, setCategory }) {
+import {  updateCategory } from "../actions/actions";
+
+function Store(props) {
+
   function handleChange(e) {
-    setCategory(e.target.value);
+    props.updateCategory(e.target.value);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
   }
 
+  if (props.products.length === 0) {
+    return "loading product information...";
+  }
+
+
   return (
     <div className="store-container">
       <div className="store-nav">
         <form onSubmit={handleSubmit}>
-          <select onChange={handleChange} value={category}>
+          <select onChange={handleChange} value={props.currentCategory}>
             <option value="">See all Products</option>
             <option value="electronics">Electronics</option>
             <option value="jewelery">Jewelry</option>
@@ -25,32 +35,36 @@ function Store({ productResults, query, onSearch, category, setCategory }) {
             <option value="women clothing">Women's Clothing</option>
           </select>
         </form>
-
-        <SearchBar query={query} placeholder="Search" onSearch={onSearch} />
+        <div>
+          <SearchBar placeholder="Search" />
+        </div>
       </div>
       <div className="product-container">
-        {productResults.map((product) => {
-          if (!category) {
+        {props.products.map((product) => {
+          if (!props.currentCategory) {
             return (
               <Link key={product.id} to={`/product/${product.id}`}>
                 <ProductCard product={product} />
               </Link>
             );
           }
-
-          if (product.category === category) {
+          if (product.category === props.currentCategory) {
             return (
               <Link key={product.id} to={`/product/${product.id}`}>
                 <ProductCard product={product} />
               </Link>
             );
           }
-
           return "";
         })}
       </div>
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return { products: state.products, currentCategory: state.currentCategory };
+};
 
-export default Store;
+export default connect(mapStateToProps, { updateCategory })(
+  Store
+);

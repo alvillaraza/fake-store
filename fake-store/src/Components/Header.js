@@ -7,6 +7,9 @@ function Header() {
       <Link to="/">
         <h1> Faux Boutique</h1>
       </Link>
+      <Link to="/cart">
+        <i className="fas fa-shopping-cart fa-2x"></i>
+      </Link>
     </div>
   );
 }

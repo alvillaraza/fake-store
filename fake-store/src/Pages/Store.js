@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import { Link } from "react-router-dom";
+import Fuse from "fuse.js";
+
 
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
@@ -9,7 +10,6 @@ import SearchBar from "../components/SearchBar";
 import {  updateCategory } from "../actions/actions";
 
 function Store(props) {
-
   function handleChange(e) {
     props.updateCategory(e.target.value);
   }
@@ -18,10 +18,29 @@ function Store(props) {
     e.preventDefault();
   }
 
+  // Start of Search Functionality
+  // Start of Search Functionality
+
+  const fuse = new Fuse(props.products, {
+    keys: ["title", "description", "category"],
+    includeScore: true,
+  });
+
+  const query = props.currentQuery;
+  const result = fuse.search(query);
+  console.log("result", result);
+
+  // displays the results - if there is a query in search, display what was searched : otherwise display all products
+  const productResults = query
+    ? result.map((productResult) => productResult.item)
+    : props.products;
+
+  // End of Search Functionality
+  // End of Search Functionality
+
   if (props.products.length === 0) {
     return "Products are unfolding...";
   }
-
 
   return (
     <div className="store-container">
@@ -40,7 +59,7 @@ function Store(props) {
         </div>
       </div>
       <div className="product-container">
-        {props.products.map((product) => {
+        {productResults.map((product) => {
           if (!props.currentCategory) {
             return (
               <Link key={product.id} to={`/product/${product.id}`}>
@@ -62,7 +81,7 @@ function Store(props) {
   );
 }
 const mapStateToProps = (state) => {
-  return { products: state.products, currentCategory: state.currentCategory };
+  return { products: state.products, currentCategory: state.currentCategory, currentQuery: state.currentQuery };
 };
 
 export default connect(mapStateToProps, { updateCategory })(

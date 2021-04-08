@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addQty } from "../actions/actions";
+import { addQty, subtractQty } from "../actions/actions";
 
 function Cart(props) {
+
+  function minusQty(id) {
+    props.subtractQty(id)
+  }
 
   function plusQty(id) {
     props.addQty(id)
@@ -29,7 +33,7 @@ function Cart(props) {
                 <img src={product.image} alt="product" />
               </div>
               <div> {product.title}</div>
-              <div>Qty: <button>-</button> {product.qty}<button onClick={() => plusQty(product.id)}>+</button></div>
+              <div>Qty: <button onClick={() => minusQty(product.id)}>-</button> {product.qty}<button onClick={() => plusQty(product.id)}>+</button></div>
               <div>Price: ${product.qty * product.price}</div>
             </div>
           );
@@ -46,4 +50,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {addQty})(Cart);
+export default connect(mapStateToProps, {addQty, subtractQty})(Cart);

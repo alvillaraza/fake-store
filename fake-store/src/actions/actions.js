@@ -9,6 +9,7 @@ export const UPDATE_QUERY = "UPDATE_QUERY";
 
 export const ADD_TO_CART = "ADD_TO_CART";
 export const ADD_QTY = "ADD_QTY";
+export const SUBTRACT_QTY = "SUBTRACT_QTY";
 
 export const fetchAllProducts = () => (dispatch) => {
   dispatch({ type: FETCH_ALL_PRODUCTS_LOADING });
@@ -39,4 +40,7 @@ export const addToCart = (id) => (dispatch) => {
 
 export const addQty = (id) => (dispatch) => {
   dispatch({ type: ADD_QTY, payload: id });
+};
+export const subtractQty = (id) => (dispatch) => {
+  dispatch({ type: SUBTRACT_QTY, payload: id });
 };

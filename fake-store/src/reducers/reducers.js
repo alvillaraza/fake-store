@@ -6,6 +6,7 @@ import {
   UPDATE_QUERY,
   ADD_TO_CART,
   ADD_QTY,
+  SUBTRACT_QTY,
 } from "../actions/actions";
 
 const initialState = {
@@ -65,10 +66,21 @@ function reducers(state = initialState, action) {
           product.qty = product.qty + 1;
         }
       });
-        return {
-          ...state,
-          products: productsCopyTwo,
+      return {
+        ...state,
+        products: productsCopyTwo,
+      };
+    case SUBTRACT_QTY:
+      let productsCopyThree = [...state.products];
+      productsCopyThree.forEach((product) => {
+        if (product.id === action.payload) {
+          product.qty = product.qty - 1;
         }
+      });
+      return {
+        ...state,
+        products: productsCopyThree,
+      }
     default:
       return state;
   }

@@ -24,7 +24,7 @@ function Cart(props) {
               </div>
               <div> {product.title}</div>
               <div>Qty: {product.qty}</div>
-              <div>Price: {product.price}</div>
+              <div>Price: ${product.price}</div>
             </div>
           );
         }

@@ -8,14 +8,11 @@ import AddToCartButton from "../components/AddToCart";
 
 function Product(props) {
   const match = useRouteMatch();
+  console.log(props.products);
 
   useEffect(() => {
     fetchAllProducts(match.params.id);
   }, [match.params.id]);
-
-  if (!props.products) {
-    return "loading product information...";
-  }
 
   return (
     <div className="product-info">

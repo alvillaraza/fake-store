@@ -10,7 +10,6 @@ import {  updateCategory } from "../actions/actions";
 
 function Store(props) {
 
-
   function handleChange(e) {
     props.updateCategory(e.target.value);
   }
@@ -18,6 +17,11 @@ function Store(props) {
   function handleSubmit(e) {
     e.preventDefault();
   }
+
+  if (props.products.length === 0) {
+    return "loading product information...";
+  }
+
 
   return (
     <div className="store-container">

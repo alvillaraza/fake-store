@@ -18,6 +18,7 @@ $ cd fake-store
 $ npm install
 $ npm i react
 $ npm i react-router-dom
+npm i react-redux
 $ npm i axios
 $ npm install --save fuse.js
 $ npm start

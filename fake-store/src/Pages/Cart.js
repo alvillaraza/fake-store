@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addQty, subtractQty } from "../actions/actions";
+import { addQty, subtractQty, removeFromCart } from "../actions/actions";
 
 function Cart(props) {
+  function removeItem(id) {
+    props.removeFromCart(id);
+  }
 
   function minusQty(id) {
-    props.subtractQty(id)
+    props.subtractQty(id);
+    //TODO: make sure subtract doesn't go to negative numbers
   }
 
   function plusQty(id) {
-    props.addQty(id)
+    props.addQty(id);
   }
 
   function getTotal() {
@@ -33,8 +37,14 @@ function Cart(props) {
                 <img src={product.image} alt="product" />
               </div>
               <div> {product.title}</div>
-              <div>Qty: <button onClick={() => minusQty(product.id)}>-</button> {product.qty}<button onClick={() => plusQty(product.id)}>+</button></div>
-              <div>Price: ${product.qty * product.price}</div>
+              <div>
+                Qty: {product.qty === 1 ? <button onClick={() => removeItem(product.id)}>x</button> : <button onClick={() => minusQty(product.id)}>-</button>
+                }
+                
+                {product.qty}
+                <button onClick={() => plusQty(product.id)}>+</button>
+              </div>
+              <div>Price: ${(product.qty * product.price).toFixed(2)}</div>
             </div>
           );
         }
@@ -50,4 +60,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {addQty, subtractQty})(Cart);
+export default connect(mapStateToProps, {
+  addQty,
+  subtractQty,
+  removeFromCart,
+})(Cart);

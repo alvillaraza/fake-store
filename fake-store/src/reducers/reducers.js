@@ -7,6 +7,7 @@ import {
   ADD_TO_CART,
   ADD_QTY,
   SUBTRACT_QTY,
+  REMOVE_FROM_CART,
 } from "../actions/actions";
 
 const initialState = {
@@ -52,7 +53,6 @@ function reducers(state = initialState, action) {
         if (product.id === action.payload) {
           product.qty = product.qty + 1;
           product.inCart = true;
-          // product.price = product.price * product.qty;
         }
       });
       return {
@@ -60,26 +60,37 @@ function reducers(state = initialState, action) {
         products: productsCopy,
       };
     case ADD_QTY:
-      let productsCopyTwo = [...state.products];
-      productsCopyTwo.forEach((product) => {
+      let productsToAddFrom = [...state.products];
+      productsToAddFrom.forEach((product) => {
         if (product.id === action.payload) {
           product.qty = product.qty + 1;
         }
       });
       return {
         ...state,
-        products: productsCopyTwo,
+        products: productsToAddFrom,
       };
     case SUBTRACT_QTY:
-      let productsCopyThree = [...state.products];
-      productsCopyThree.forEach((product) => {
+      let productsToSubtractFrom = [...state.products];
+      productsToSubtractFrom.forEach((product) => {
         if (product.id === action.payload) {
           product.qty = product.qty - 1;
         }
       });
       return {
         ...state,
-        products: productsCopyThree,
+        products: productsToSubtractFrom,
+      }
+    case REMOVE_FROM_CART:
+      let productsRemove = [...state.products];
+      productsRemove.forEach((product) => {
+        if (product.id === action.payload) {
+          product.inCart = false;
+        }
+      })
+      return {
+        ...state,
+        products: productsRemove,
       }
     default:
       return state;

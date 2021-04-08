@@ -3,18 +3,6 @@ import { connect } from "react-redux";
 import { addQty, subtractQty, removeFromCart } from "../actions/actions";
 
 function Cart(props) {
-  function removeItem(id) {
-    props.removeFromCart(id);
-  }
-
-  function minusQty(id) {
-    props.subtractQty(id);
-    //TODO: make sure subtract doesn't go to negative numbers
-  }
-
-  function plusQty(id) {
-    props.addQty(id);
-  }
 
   function getTotal() {
     let total = 0;
@@ -38,11 +26,11 @@ function Cart(props) {
               </div>
               <div> {product.title}</div>
               <div>
-                Qty: {product.qty === 1 ? <button onClick={() => removeItem(product.id)}>x</button> : <button onClick={() => minusQty(product.id)}>-</button>
+                Qty: {product.qty === 1 ? <button onClick={() => props.removeFromCart(product.id)}>x</button> : <button onClick={() => props.subtractQty(product.id)}>-</button>
                 }
                 
                 {product.qty}
-                <button onClick={() => plusQty(product.id)}>+</button>
+                <button onClick={() => props.addQty(product.id)}>+</button>
               </div>
               <div>Price: ${(product.qty * product.price).toFixed(2)}</div>
             </div>

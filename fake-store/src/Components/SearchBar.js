@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { updateQuery } from "../actions/actions";
-// import Fuse from "fuse.js";
+import Fuse from "fuse.js";
 
 const SearchBar = (props) => {
   // Start of Search Functionality
@@ -9,17 +9,16 @@ const SearchBar = (props) => {
 
   //const [query, updateQuery] = useState("")
   // Allows users to search by title, description, and category
-  // const fuse = new Fuse(props.products, {
-  //   keys: ["title", "description", "category"],
-  //   includeScore: true,
-  // });
+  const fuse = new Fuse(props.products, {
+    keys: ["title", "description", "category"],
+    includeScore: true,
+  });
 
   // Updates the search bar
   function onSearch(e) {
     props.updateQuery(e.target.value);
   }
 
-  // console.log('currentquery', props.currentQuery);
   // const query = props.currentQuery;
   // const result = fuse.search("women")
   // console.log('result', result);

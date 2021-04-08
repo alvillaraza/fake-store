@@ -97,3 +97,6 @@ a:hover {
 .cart .img-container {
   width: 30%;
 }
+.cart button {
+  margin: 11px;
+}

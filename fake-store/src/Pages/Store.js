@@ -19,7 +19,7 @@ function Store(props) {
   }
 
   if (props.products.length === 0) {
-    return "loading product information...";
+    return "Products are unfolding...";
   }
 
 

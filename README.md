@@ -7,6 +7,8 @@ Project is created with:
 * React.js
 * REST API
 * axios
+* Redux
+* Fuse
 
 ## Setup
 To run this project, install it locally using npm:

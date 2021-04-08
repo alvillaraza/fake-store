@@ -19,9 +19,9 @@ const SearchBar = (props) => {
     props.updateQuery(e.target.value);
   }
 
-  // const query = props.currentQuery;
-  // const result = fuse.search("women")
-  // console.log('result', result);
+  const query = props.currentQuery;
+  const result = fuse.search("women")
+  console.log('result', result);
 
   // displays the results - if there is a query in search, display what was searched : otherwise display all products
   // const productResults = query
@@ -47,7 +47,9 @@ const SearchBar = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { currentQuery: state.currentQuery};
+  return { products: state.products,
+    currentQuery: state.currentQuery
+  };
 };
 
 export default connect(mapStateToProps, { updateQuery })(SearchBar);

@@ -3,9 +3,9 @@ import { Route } from "react-router-dom";
 import { connect } from 'react-redux';
 
 import Header from "./Ccomponents/Header";
-import Store from "./pages/Store";
-import Product from "./pages/Product";
-import Cart from "./pages/Cart";
+import Store from "./Ppages/Store";
+import Product from "./Ppages/Product";
+import Cart from "./Ppages/Cart";
 
 import { fetchAllProducts } from "./actions/actions";
 

@@ -52,6 +52,7 @@ function reducers(state = initialState, action) {
         if (product.id === action.payload) {
           product.qty = product.qty + 1;
           product.inCart = true;
+          product.price = product.price * product.qty;
         }
       });
 

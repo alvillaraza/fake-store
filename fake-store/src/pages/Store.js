@@ -3,11 +3,10 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Fuse from "fuse.js";
 
-
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
 
-import {  updateCategory } from "../actions/actions";
+import { updateCategory } from "../actions/actions";
 
 function Store(props) {
   function handleChange(e) {
@@ -81,9 +80,11 @@ function Store(props) {
   );
 }
 const mapStateToProps = (state) => {
-  return { products: state.products, currentCategory: state.currentCategory, currentQuery: state.currentQuery };
+  return {
+    products: state.products,
+    currentCategory: state.currentCategory,
+    currentQuery: state.currentQuery,
+  };
 };
 
-export default connect(mapStateToProps, { updateCategory })(
-  Store
-);
+export default connect(mapStateToProps, { updateCategory })(Store);

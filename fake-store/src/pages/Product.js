@@ -28,8 +28,8 @@ function Product(props) {
               <div className="product-desc">
                 <h2>{product.title}</h2>
                 <p>
-                  PRICE:
-                  <span className="price-value">{product.price}</span>
+                  PRICE: 
+                  <span className="price-value">${product.price}</span>
                 </p>
                 <p className="desc">
                   {productDescription.charAt(0).toUpperCase() +

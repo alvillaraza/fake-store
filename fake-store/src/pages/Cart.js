@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { addQty, subtractQty, removeFromCart } from "../actions/actions";
 
 function Cart(props) {
-
   function getTotal() {
     let total = 0;
 
@@ -21,19 +20,31 @@ function Cart(props) {
         if (product.inCart === true) {
           return (
             <div className="cart" key={product.id}>
-              <div className="img-container">
-                <img src={product.image} alt="product" />
-              </div>
-              <div> {product.title}</div>
-              <div>
-                Qty: {product.qty === 1 ? <button onClick={() => props.removeFromCart(product.id)}>x</button> : <button onClick={() => props.subtractQty(product.id)}>-</button>
-                }
-                
-                {product.qty}
-                <button onClick={() => props.addQty(product.id)}>+</button>
-              </div>
-              <div>Price: ${(product.qty * product.price).toFixed(2)}</div>
-            </div>
+              <Link
+                className="cart-link"
+                to={`/product/${product.id}`}
+              >
+                <div className="img-container">
+                  <img src={product.image} alt="product" />
+                </div>
+                <div> {product.title}</div>
+                  </Link>
+                <div>
+                  Qty:{" "}
+                  {product.qty === 1 ? (
+                    <button onClick={() => props.removeFromCart(product.id)}>
+                      x
+                    </button>
+                  ) : (
+                    <button onClick={() => props.subtractQty(product.id)}>
+                      -
+                    </button>
+                  )}
+                  {product.qty}
+                  <button onClick={() => props.addQty(product.id)}>+</button>
+                </div>
+                <div>Price: ${(product.qty * product.price).toFixed(2)}</div>
+             </div>
           );
         }
       })}

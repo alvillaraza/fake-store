@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 import Header from "./components/Header";
 import Store from "./pages/Store";
@@ -13,9 +13,9 @@ import "./App.css";
 import "./Normalize.css";
 
 function App(props) {
-   useEffect(() => {
-     props.fetchAllProducts();
-   }, []);
+  useEffect(() => {
+    props.fetchAllProducts();
+  }, []);
 
   return (
     <div className="app-container">
@@ -24,12 +24,11 @@ function App(props) {
       <Route exact path="/">
         <Store />
       </Route>
-     
 
       <Route path="/product/:id">
         <Product />
       </Route>
-      
+
       <Route path="/cart">
         <Cart />
       </Route>
@@ -37,7 +36,7 @@ function App(props) {
   );
 }
 const mapStateToProps = (state) => {
-  return { products: state.products};
+  return { products: state.products };
 };
 
-export default connect(mapStateToProps, {fetchAllProducts}) (App);
+export default connect(mapStateToProps, { fetchAllProducts })(App);

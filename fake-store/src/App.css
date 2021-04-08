@@ -89,10 +89,15 @@ a:hover {
 }
 .cart {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   align-items: center;
   border-bottom: 1px solid black;
   padding: 30px;
+}
+.cart .cart-link {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 .cart .img-container {
   width: 30%;

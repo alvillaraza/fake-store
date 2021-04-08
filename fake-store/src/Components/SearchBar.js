@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { updateQuery } from "../actions/actions";
-import Fuse from "fuse.js";
 
 const SearchBar = (props) => {
 

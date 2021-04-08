@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import { Route } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import Header from "./components/Header";
+import Header from "./Ccomponents/Header";
 import Store from "./pages/Store";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";

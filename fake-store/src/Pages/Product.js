@@ -4,7 +4,7 @@ import { fetchAllProducts } from "../actions/actions";
 
 import { useRouteMatch } from "react-router-dom";
 
-import AddToCartButton from "../components/AddToCart";
+import AddToCartButton from "../Ccomponents/AddToCart";
 
 function Product(props) {
   const match = useRouteMatch();

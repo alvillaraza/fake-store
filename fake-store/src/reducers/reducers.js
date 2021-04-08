@@ -5,6 +5,7 @@ import {
   UPDATE_CATEGORY,
   UPDATE_QUERY,
   ADD_TO_CART,
+  ADD_QTY,
 } from "../actions/actions";
 
 const initialState = {
@@ -39,27 +40,35 @@ function reducers(state = initialState, action) {
         ...state,
         currentCategory: action.payload,
       };
-
     case UPDATE_QUERY:
       return {
         ...state,
         currentQuery: action.payload,
       };
-
     case ADD_TO_CART:
       let productsCopy = [...state.products];
       productsCopy.forEach((product) => {
         if (product.id === action.payload) {
           product.qty = product.qty + 1;
           product.inCart = true;
-          product.price = product.price * product.qty;
+          // product.price = product.price * product.qty;
         }
       });
-
       return {
         ...state,
         products: productsCopy,
       };
+    case ADD_QTY:
+      let productsCopyTwo = [...state.products];
+      productsCopyTwo.forEach((product) => {
+        if (product.id === action.payload) {
+          product.qty = product.qty + 1;
+        }
+      });
+        return {
+          ...state,
+          products: productsCopyTwo,
+        }
     default:
       return state;
   }

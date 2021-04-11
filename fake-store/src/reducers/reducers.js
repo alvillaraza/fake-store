@@ -86,6 +86,7 @@ function reducers(state = initialState, action) {
       productsRemove.forEach((product) => {
         if (product.id === action.payload) {
           product.inCart = false;
+          product.qty = 0;
         }
       })
       return {

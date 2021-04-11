@@ -27,7 +27,6 @@ function Store(props) {
 
   const query = props.currentQuery;
   const result = fuse.search(query);
-  console.log("result", result);
 
   // displays the results - if there is a query in search, display what was searched : otherwise display all products
   const productResults = query

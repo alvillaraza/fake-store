@@ -29,7 +29,7 @@ function Cart(props) {
                 </div>
                 <div> {product.title}</div>
                   </Link>
-                <div>
+                <div className='cart-nav'>
                   Qty:{" "}
                   {product.qty === 1 ? (
                     <button onClick={() => props.removeFromCart(product.id)}>

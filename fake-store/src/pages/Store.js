@@ -36,9 +36,16 @@ function Store(props) {
   // End of Search Functionality
   // End of Search Functionality
 
+  const cartAmount = () => {
+    return props.products.reduce((acc, value) => {
+      return acc + value.qty;
+    }, 0);
+  };
+
   if (props.products.length === 0) {
     return "Products are unfolding...";
   }
+
 
   return (
     <div className="store-container">
@@ -55,6 +62,10 @@ function Store(props) {
         <div>
           <SearchBar placeholder="Search" />
         </div>
+        <Link to="/cart">
+          <i className="fas fa-shopping-cart fa-2x"></i>
+          <div className='cart-amount'>{cartAmount() === 0 ? "" : cartAmount()}</div>
+        </Link>
       </div>
       <div className="product-container">
         {productResults.map((product) => {

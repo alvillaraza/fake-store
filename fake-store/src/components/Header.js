@@ -15,9 +15,9 @@ function Header(props) {
       <Link to="/">
         <h1> Faux Boutique</h1>
       </Link>
-      <Link to="/cart">
+      {/* <Link to="/cart">
         <i className="fas fa-shopping-cart fa-2x"></i>{ cartAmount() === 0 ? '' : cartAmount()}
-      </Link>
+      </Link> */}
     </div>
   );
 }

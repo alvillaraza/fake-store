@@ -16,7 +16,8 @@ function Header(props) {
         <h1> Faux Boutique</h1>
       </Link>
       {/* <Link to="/cart">
-        <i className="fas fa-shopping-cart fa-2x"></i>{ cartAmount() === 0 ? '' : cartAmount()}
+        <i className="fas fa-shopping-cart fa-2x"></i><div
+        className='cart-amount'>{cartAmount() === 0 ? "" : cartAmount()}</div>
       </Link> */}
     </div>
   );

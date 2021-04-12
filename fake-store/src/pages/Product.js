@@ -35,8 +35,8 @@ function Product(props) {
                   {productDescription.charAt(0).toUpperCase() +
                     productDescription.slice(1)}
                 </p>
-              </div>
               <AddToCartButton id={product.id}/>
+              </div>
             </React.Fragment>
           );
         } else {

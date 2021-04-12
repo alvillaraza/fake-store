@@ -56,7 +56,7 @@ button {
   font-weight: 900;
   width: 25px;
   position: absolute;
-  top: 13%;
+  top: 15%;
   right: 1%;
 }
 .store-container .product-container {
@@ -70,7 +70,6 @@ button {
 }
 .product-card {
   padding: 40px 60px 40px 60px;
-  text-align: left;
 }
 .product-card h4,
 .product-card p {

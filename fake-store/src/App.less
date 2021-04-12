@@ -20,16 +20,20 @@ h1 {
   .heading-font;
 }
 
-h2,
+h2, h4, h5
 p {
   .text-font;
 }
 
 a {
   text-decoration: none;
-  &:hover {
-    text-decoration: underline black;
-  }
+  // &:hover {
+  //   text-decoration: underline black;
+  // }
+}
+
+button {
+  border: none;
 }
 
 .app-container {
@@ -67,7 +71,9 @@ a {
 // ProductCard //
 // ProductCard //
 .product-card {
-  padding: 40px;
+  padding: 30px 60px 30px 60px;
+  text-align: left;
+ 
 
   img {
     width: 300px;

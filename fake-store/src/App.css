@@ -17,15 +17,16 @@ h1 {
   font-family: "Corben", cursive;
 }
 h2,
-p {
+h4,
+h5 p {
   color: black;
   font-family: "Nobile", sans-serif;
 }
 a {
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline black;
+button {
+  border: none;
 }
 .app-container {
   margin: 2%;
@@ -50,7 +51,8 @@ a:hover {
   }
 }
 .product-card {
-  padding: 40px;
+  padding: 30px 60px 30px 60px;
+  text-align: left;
 }
 .product-card img {
   width: 300px;

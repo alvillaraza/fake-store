@@ -5,6 +5,7 @@ import Fuse from "fuse.js";
 
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
+import AddToCartButton from "../components/AddToCart";
 
 import { updateCategory } from "../actions/actions";
 
@@ -71,16 +72,22 @@ function Store(props) {
         {productResults.map((product) => {
           if (!props.currentCategory) {
             return (
+              <div>
               <Link key={product.id} to={`/product/${product.id}`}>
                 <ProductCard product={product} />
               </Link>
+                <AddToCartButton id={product.id} />
+                </div>
             );
           }
           if (product.category === props.currentCategory) {
             return (
+              <div>
               <Link key={product.id} to={`/product/${product.id}`}>
                 <ProductCard product={product} />
               </Link>
+              <AddToCartButton id={product.id} />
+                </div>
             );
           }
           return "";

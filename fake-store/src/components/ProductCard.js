@@ -8,7 +8,7 @@ function ProductCard({ product }) {
       <img src={product.image} alt="product thumbnail" />
       <p>{product.title}</p>
       <h4>${(product.price).toFixed(2)}</h4>
-      <AddToCartButton id={product.id} />
+      
     </div>
   );
 }

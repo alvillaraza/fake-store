@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -13,26 +13,34 @@ import "./App.css";
 import "./Normalize.css";
 
 function App(props) {
+  // create a setOpen state here, then pass it down to product and store (wherever there's a "addToCart" or go to cart button)
+  // for all addCart buttons, do an onClick, setOpen to true
+
+  // in Cart, add className={`cart-container ${open ? "" : "hide"}`}
+  // put Cart.js on top of app-container, then add styling
+  //add timer for when the cart shows up
   useEffect(() => {
     props.fetchAllProducts();
   }, []);
 
   return (
-    <div className="app-container">
+    <main>
       <Header />
+    <div className="app-container">
+      
 
       <Route exact path="/">
-        <Store />
+          <Store />
       </Route>
 
       <Route path="/product/:id">
         <Product />
       </Route>
-
-      <Route path="/cart">
-        <Cart />
-      </Route>
-    </div>
+</div>
+     
+      <Cart />
+      
+    </main>
   );
 }
 const mapStateToProps = (state) => {

@@ -112,24 +112,34 @@ button {
 .search-bar {
   text-align: right;
 }
-.cart {
+.cart-container {
+  background-color: blanchedalmond;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+}
+.cart-container.hide {
+  display: none;
+}
+.cart-container .cart {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr;
   align-items: center;
   border-bottom: 1px solid black;
   padding: 30px;
 }
-.cart .cart-link {
+.cart-container .cart .cart-link {
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
 }
-.cart .cart-nav {
+.cart-container .cart .cart-nav {
   margin-left: 45px;
 }
-.cart .img-container {
+.cart-container .cart .img-container {
   width: 30%;
 }
-.cart button {
+.cart-container .cart button {
   margin: 11px;
 }

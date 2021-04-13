@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { addQty, subtractQty, removeFromCart } from "../actions/actions";
 
 function Cart(props) {
+  console.log(props);
   function getTotal() {
     let total = 0;
 
@@ -15,7 +16,7 @@ function Cart(props) {
   }
 
   return (
-    <div className="cart-container">
+    <div className={`cart-container ${props.cartOpen ? "" : 'hide'}`}>
       {props.products.map((product) => {
         if (product.inCart === true) {
           return (
@@ -56,6 +57,7 @@ function Cart(props) {
 const mapStateToProps = (state) => {
   return {
     products: state.products,
+    cartOpen: state.cartOpen,
   };
 };
 

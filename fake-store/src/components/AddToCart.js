@@ -9,9 +9,9 @@ function AddToCartButton(props) {
 
   return (
     <div>
-      <Link to="/cart">
+      {/* <Link to="/cart"> */}
         <button className="cart-button" onClick={() => props.addToCart(id)}>Add To Cart</button>
-      </Link>
+      {/* </Link> */}
 
     </div>
   );

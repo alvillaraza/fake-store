@@ -45,7 +45,6 @@ button {
 // Header //
 // Header //
 .header {
-
   background-color: black;
   align-items: center;
   padding: 10px;
@@ -151,28 +150,40 @@ button {
 
 // Cart //
 // Cart //
-.cart {
-  display: grid;
-  grid-template-columns: 3fr 1fr 1fr;
-  align-items: center;
-  border-bottom: 1px solid black;
-  padding: 30px;
+.cart-container {
+  background-color: blanchedalmond;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
 
-  .cart-link {
+   &.hide {
+    display: none;
+  }
+
+  .cart {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 3fr 1fr 1fr;
     align-items: center;
-  }
+    border-bottom: 1px solid black;
+    padding: 30px;
 
-  .cart-nav {
-    margin-left: 45px;
-  }
+    .cart-link {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+    }
 
-  .img-container {
-    width: 30%;
-  }
+    .cart-nav {
+      margin-left: 45px;
+    }
 
-  button {
-    margin: 11px;
+    .img-container {
+      width: 30%;
+    }
+
+    button {
+      margin: 11px;
+    }
   }
 }

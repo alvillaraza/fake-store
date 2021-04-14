@@ -65,7 +65,7 @@ function Store(props) {
           <SearchBar placeholder="Search" />
         </div>
         <Link to="/cart">
-          <i className="fas fa-shopping-cart fa-2x"></i>
+          <i className="fas fa-shopping-cart fa-2x" onClick={() => props.setShowCart(false)}></i>
           <div className='cart-amount'>{cartAmount() === 0 ? "" : cartAmount()}</div>
         </Link>
       </div>

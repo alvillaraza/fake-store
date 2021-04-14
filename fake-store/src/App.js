@@ -15,11 +15,7 @@ import "./Normalize.css";
 
 function App(props) {
   const [showCart, setShowCart] = useState(false)
-  console.log(showCart);
-  // put Cart.js on top of app-container, then add styling
-  //add timer for when the cart shows up
-  
-  //figure out where cart button should go for when a user just wants to go directly to cart, figure out how to get this to work with Route
+
   useEffect(() => {
     props.fetchAllProducts();
   }, []);

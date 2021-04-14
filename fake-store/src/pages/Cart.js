@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addQty, subtractQty, removeFromCart } from "../actions/actions";
 
 function Cart(props) {
-  console.log(props);
+  
   function getTotal() {
     let total = 0;
 

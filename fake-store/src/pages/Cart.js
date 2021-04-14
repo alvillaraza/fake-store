@@ -55,7 +55,7 @@ function Cart(props) {
         }
         return "";
       })}
-      <div className="cart-total">{getTotal() === 0 ? `Start Shopping! `: `Total: ${getTotal()}`}</div>
+      <div className="cart-total">{getTotal() === 0 ? <span className="start-shopping">Start Shopping!</span> : `Total: $${getTotal().toFixed(2)}`}</div>
     </div>
   );
 }

@@ -15,7 +15,6 @@ const initialState = {
   products: [],
   currentCategory: "",
   currentQuery: "",
-  //sidebarItem
   sidebarItem: [], 
   sidebarOpen: false,
 
@@ -67,7 +66,6 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         products: productsCopy,
-        //sidebarItem
         sidebarItem: action.payload,
              
       };

@@ -1,20 +1,18 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addToCart, sidebarOpen } from "../actions/actions";
 
 function AddToCartButton(props) {
-  console.log(props);
 
   return (
     <div>
-      <Link to="/cart">
+      {/* <Link to="/cart"> */}
       <button
         className="cart-button"
         onClick={() => {
           props.addToCart(props.id);
           props.sidebarOpen(true);
 
-          // TODO: make sure this sidebar closes after awhile
           setTimeout(() => {
             props.sidebarOpen(false)
           }, 2500);
@@ -23,7 +21,7 @@ function AddToCartButton(props) {
       >
         Add To Cart
       </button>
-      </Link>
+      {/* </Link> */}
     </div>
   );
 }

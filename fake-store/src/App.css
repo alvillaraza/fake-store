@@ -171,7 +171,8 @@ button .btn-dark.active {
 .sidebar-container {
   height: 100%;
   position: absolute;
-  top: 0;
+  top: auto;
+  bottom: 10px;
   right: 0;
   width: 40%;
   background-color: lightgreen;

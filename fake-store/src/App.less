@@ -47,7 +47,27 @@ button {
 .header {
   background-color: black;
   align-items: center;
-  padding: 10px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+
+  .fa-shopping-bag {
+    color: white;
+    align-items: right;
+  }
+
+  .cart-amount {
+    background-color: lightgrey;
+    color: black;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 900;
+    width: 25px;
+    position: absolute;
+    top: 6%;
+    right: 1%;
+  }
 
   h1 {
     color: white;
@@ -63,18 +83,6 @@ button {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
-
-    .cart-amount {
-      background-color: black;
-      color: white;
-      border-radius: 50%;
-      font-size: 10px;
-      font-weight: 900;
-      width: 25px;
-      position: absolute;
-      top: 15%;
-      right: 1%;
-    }
   }
 
   .product-container {
@@ -90,8 +98,7 @@ button {
 // ProductCard //
 // ProductCard //
 .product-card {
-  padding: 40px 60px 40px 60px;
-  // text-align: left;
+  padding: 80px 60px 10px 60px;
 
   h4,
   p {
@@ -185,14 +192,24 @@ button {
 // SideBar //
 // SideBar //
 .sidebar-container {
-  background-color: white;
+  height: 100%;
   position: absolute;
-  // top: 0;
+  top: 0;
   bottom: 0;
   right: 0;
   width: 40%;
+  background-color: lightgreen;
   transition-property: right, opacity;
   transition-duration: 0.5s;
+
+  &.hide {
+    right: -100%;
+    opacity: 0;
+  }
+
+  .sidebar-content {
+    background-color: white;
+  }
 
   .sidebar-items {
     display: grid;
@@ -203,10 +220,5 @@ button {
       width: 30%;
       margin: 30px;
     }
-  }
-
-  &.hide {
-    right: -100%;
-    opacity: 0;
   }
 }

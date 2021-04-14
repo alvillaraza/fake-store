@@ -37,7 +37,7 @@ function Product(props) {
                   {productDescription.charAt(0).toUpperCase() +
                     productDescription.slice(1)}
                 </p>
-                <AddToCartButton id={product.id} setShowCart={props.setShowCart} />
+                <AddToCartButton id={product.id} />
               </div>
             </React.Fragment>
           );

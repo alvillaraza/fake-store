@@ -35,7 +35,25 @@ button {
 .header {
   background-color: black;
   align-items: center;
-  padding: 10px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.header .fa-shopping-bag {
+  color: white;
+  align-items: right;
+}
+.header .cart-amount {
+  background-color: lightgrey;
+  color: black;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 900;
+  width: 25px;
+  position: absolute;
+  top: 6%;
+  right: 1%;
 }
 .header h1 {
   color: white;
@@ -48,17 +66,6 @@ button {
   justify-content: space-between;
   margin-top: 10px;
 }
-.store-container .store-nav .cart-amount {
-  background-color: black;
-  color: white;
-  border-radius: 50%;
-  font-size: 10px;
-  font-weight: 900;
-  width: 25px;
-  position: absolute;
-  top: 15%;
-  right: 1%;
-}
 .store-container .product-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -69,7 +76,7 @@ button {
   }
 }
 .product-card {
-  padding: 40px 60px 40px 60px;
+  padding: 80px 60px 10px 60px;
 }
 .product-card h4,
 .product-card p {
@@ -138,13 +145,22 @@ button {
   margin: 11px;
 }
 .sidebar-container {
-  background-color: white;
+  height: 100%;
   position: absolute;
+  top: 0;
   bottom: 0;
   right: 0;
   width: 40%;
+  background-color: lightgreen;
   transition-property: right, opacity;
   transition-duration: 0.5s;
+}
+.sidebar-container.hide {
+  right: -100%;
+  opacity: 0;
+}
+.sidebar-container .sidebar-content {
+  background-color: white;
 }
 .sidebar-container .sidebar-items {
   display: grid;
@@ -154,8 +170,4 @@ button {
 .sidebar-container .sidebar-items .sidebar-img {
   width: 30%;
   margin: 30px;
-}
-.sidebar-container.hide {
-  right: -100%;
-  opacity: 0;
 }

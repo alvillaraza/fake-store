@@ -6,7 +6,6 @@ import Fuse from "fuse.js";
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
 import AddToCartButton from "../components/AddToCart";
-import SideBar from "../components/SideBar";
 
 import { updateCategory } from "../actions/actions";
 
@@ -39,12 +38,6 @@ function Store(props) {
   // End of Search Functionality
   // End of Search Functionality
 
-  const cartAmount = () => {
-    return props.products.reduce((acc, value) => {
-      return acc + value.qty;
-    }, 0);
-  };
-
   if (props.products.length === 0) {
     return "Products are unfolding...";
   }
@@ -64,15 +57,7 @@ function Store(props) {
         <div>
           <SearchBar placeholder="Search" />
         </div>
-        <Link to="/cart">
-          <i
-            className="fas fa-shopping-cart fa-2x"
-            onClick={() => props.setShowCart(false)}
-          ></i>
-          <div className="cart-amount">
-            {cartAmount() === 0 ? "" : cartAmount()}
-          </div>
-        </Link>
+       
       </div>
       <div className="product-container">
         {productResults.map((product) => {
@@ -82,11 +67,7 @@ function Store(props) {
                 <Link key={product.id} to={`/product/${product.id}`}>
                   <ProductCard product={product} />
                 </Link>
-                <AddToCartButton
-                  setShowCart={props.setShowCart}
-                  setItemAdded={props.setItemAdded}
-                  product={product}
-                />
+                <AddToCartButton id={product.id} />
               </div>
             );
           }
@@ -96,11 +77,7 @@ function Store(props) {
                 <Link key={product.id} to={`/product/${product.id}`}>
                   <ProductCard product={product} />
                 </Link>
-                <AddToCartButton
-                  setShowCart={props.setShowCart}
-                  setItemAdded={props.setItemAdded}
-                  product={product}
-                />
+                <AddToCartButton id={product.id} />
               </div>
             );
           }

@@ -33,7 +33,6 @@ function Cart(props) {
                   <button
                     onClick={() => {
                       props.removeFromCart(product.id);
-                      props.setShowCart(false);
                     }}
                   >
                     x

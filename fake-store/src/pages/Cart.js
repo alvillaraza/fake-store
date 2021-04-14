@@ -29,7 +29,7 @@ function Cart(props) {
                 <div className="img-container">
                   <img src={product.image} alt="product" />
                 </div>
-                <div> {product.title}</div>
+                <p> {product.title}</p>
               </Link>
               <div className="cart-nav">
                 Qty:

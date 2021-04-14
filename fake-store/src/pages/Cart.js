@@ -15,6 +15,10 @@ function Cart(props) {
     return total;
   }
 
+    if (props.products.length === 0) {
+      return "Products are unfolding...";
+    }
+
   return (
     <div className="cart-container">
       {props.products.map((product) => {
@@ -28,7 +32,7 @@ function Cart(props) {
                 <div> {product.title}</div>
               </Link>
               <div className="cart-nav">
-                Qty:{" "}
+                Qty:
                 {product.qty === 1 ? (
                   <button
                     onClick={() => {
@@ -51,10 +55,11 @@ function Cart(props) {
         }
         return "";
       })}
-      <div className="cart-total">Total: ${getTotal().toFixed(2)}</div>
+      <div className="cart-total">{getTotal() === 0 ? `Start Shopping! `: `Total: ${getTotal()}`}</div>
     </div>
   );
 }
+// Total: ${getTotal().toFixed(2)}
 
 const mapStateToProps = (state) => {
   return {

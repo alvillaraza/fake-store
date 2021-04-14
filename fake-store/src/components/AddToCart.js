@@ -3,12 +3,10 @@ import { connect } from "react-redux";
 import { addToCart } from "../actions/actions";
 
 function AddToCartButton(props) {
-  console.log(props);
 
   return (
     <div>
       <Link to="/cart">
-      {console.log(props)}
       <button
         className="cart-button"
         onClick={() => {

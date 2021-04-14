@@ -29,7 +29,6 @@ const mapStateToProps = (state) => {
   return {
     products: state.products,
     sidebarOpen: state.sidebarOpen,
-    sidebarItem: state.sidebarItem,
   };
 };
 export default connect(mapStateToProps, { addToCart, sidebarOpen })(AddToCartButton);

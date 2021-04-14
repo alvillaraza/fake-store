@@ -7,7 +7,7 @@ function SideBar(props) {
         if (product.id === props.sidebarItem) {
           return (
             <div className="sidebar-content">
-              {/* <div className="sidebar-items"> */}
+              <div className="sidebar-items">
                 <div>
                   <img
                     className="sidebar-img"
@@ -16,7 +16,7 @@ function SideBar(props) {
                   />
                 </div>
                 <div>{product.title}</div>
-              {/* </div> */}
+              </div>
               <hr />
               <p>Added To Cart</p>
             </div>

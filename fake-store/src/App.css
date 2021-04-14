@@ -28,6 +28,9 @@ p {
 a {
   text-decoration: none;
 }
+input {
+  border: solid 2px #1f1f1f;
+}
 button {
   border: solid 2px #1f1f1f;
   background: transparent;
@@ -76,6 +79,9 @@ button .btn-dark.active {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+}
+.store-container .store-nav .dropdown {
+  border: solid 2px #1f1f1f;
 }
 .store-container .product-container {
   display: grid;

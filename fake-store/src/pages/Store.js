@@ -46,7 +46,11 @@ function Store(props) {
     <div className="store-container">
       <div className="store-nav">
         <form onSubmit={handleSubmit}>
-          <select onChange={handleChange} value={props.currentCategory}>
+          <select
+            className="dropdown"
+            onChange={handleChange}
+            value={props.currentCategory}
+          >
             <option value="">See all Products</option>
             <option value="electronics">Electronics</option>
             <option value="jewelery">Jewelry</option>
@@ -57,7 +61,6 @@ function Store(props) {
         <div>
           <SearchBar placeholder="Search" />
         </div>
-       
       </div>
       <div className="product-container">
         {productResults.map((product) => {

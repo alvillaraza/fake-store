@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addToCart } from "../actions/actions";
+import { addToCart, sidebarOpen } from "../actions/actions";
 
 function AddToCartButton(props) {
   console.log(props);
@@ -12,11 +12,14 @@ function AddToCartButton(props) {
         className="cart-button"
         onClick={() => {
           props.addToCart(props.id);
+          props.sidebarOpen(true);
 
+          // TODO: make sure this sidebar closes after awhile
           setTimeout(() => {
             props.sidebarOpen(false)
           }, 2500);
-        }}
+        }
+        }
       >
         Add To Cart
       </button>
@@ -31,4 +34,4 @@ const mapStateToProps = (state) => {
     sidebarItem: state.sidebarItem,
   };
 };
-export default connect(mapStateToProps, { addToCart })(AddToCartButton);
+export default connect(mapStateToProps, { addToCart, sidebarOpen })(AddToCartButton);

@@ -6,7 +6,7 @@ export const FETCH_ALL_PRODUCTS_FAILURE = "FETCH_ALL_PRODUCTS_FAILURE";
 export const FETCH_ONE_PRODUCT_SUCCESS = "FETCH_ALL_PRODUCTS_SUCCESS";
 export const UPDATE_CATEGORY = "UPDATE_CATEGORY";
 export const UPDATE_QUERY = "UPDATE_QUERY";
-
+export const OPEN_SIDEBAR = "OPEN_SIDEBAR";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const ADD_QTY = "ADD_QTY";
 export const SUBTRACT_QTY = "SUBTRACT_QTY";
@@ -35,6 +35,10 @@ export const updateCategory = (category) => (dispatch) => {
 export const updateQuery = (query) => (dispatch) => {
   dispatch({ type: UPDATE_QUERY, payload: query });
 };
+
+export const sidebarOpen = (value) => (dispatch) => {
+  dispatch ({type: OPEN_SIDEBAR, payload: value})
+}
 
 export const addToCart = (id) => (dispatch) => {
   dispatch({ type: ADD_TO_CART, payload: id });

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { addToCart } from "../actions/actions";
 
 function AddToCartButton(props) {
+  console.log(props);
 
   return (
     <div>
@@ -11,11 +12,10 @@ function AddToCartButton(props) {
         className="cart-button"
         onClick={() => {
           props.addToCart(props.id);
-          
 
-          // setTimeout(() => {
-          //   props.setShowCart(false);
-          // }, 2500);
+          setTimeout(() => {
+            props.sidebarOpen(false)
+          }, 2500);
         }}
       >
         Add To Cart
@@ -27,6 +27,8 @@ function AddToCartButton(props) {
 const mapStateToProps = (state) => {
   return {
     products: state.products,
+    sidebarOpen: state.sidebarOpen,
+    sidebarItem: state.sidebarItem,
   };
 };
 export default connect(mapStateToProps, { addToCart })(AddToCartButton);

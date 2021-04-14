@@ -10,7 +10,6 @@ import AddToCartButton from "../components/AddToCart";
 import { updateCategory } from "../actions/actions";
 
 function Store(props) {
-  console.log(props);
   function handleChange(e) {
     props.updateCategory(e.target.value);
   }

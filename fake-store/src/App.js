@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Store from "./pages/Store";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
-// import SideBar from "./components/SideBar";
+import SideBar from "./components/SideBar";
 
 import { fetchAllProducts } from "./actions/actions";
 
@@ -33,7 +33,7 @@ function App(props) {
           <Cart />
         </Route>
       </div>
-      {/* <SideBar /> */}
+      <SideBar />
     </main>
   );
 }

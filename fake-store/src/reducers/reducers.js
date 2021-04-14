@@ -14,6 +14,9 @@ const initialState = {
   products: [],
   currentCategory: "",
   currentQuery: "",
+  //sidebarItem
+  sidebarItem: {}, 
+  sidebarOpen: (false),
 
   isFetching: false,
   error: null,
@@ -58,7 +61,9 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         products: productsCopy,
-        cartOpen: true,
+        //sidebarItem
+        sidebarItem: action.payload,
+        sidebarOpen: true,
       };
     case ADD_QTY:
       let productsToAddFrom = [...state.products];

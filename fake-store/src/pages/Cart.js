@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { addQty, subtractQty, removeFromCart } from "../actions/actions";
 
 function Cart(props) {
-  
   function getTotal() {
     let total = 0;
 
@@ -11,6 +10,7 @@ function Cart(props) {
       if (product.inCart === true) {
         total = total + product.price * product.qty;
       }
+      return "";
     });
     return total;
   }
@@ -50,8 +50,9 @@ function Cart(props) {
             </div>
           );
         }
+        return "";
       })}
-      <div>Total: ${getTotal().toFixed(2)}</div>
+      <div className="cart-total">Total: ${getTotal().toFixed(2)}</div>
     </div>
   );
 }

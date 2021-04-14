@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 function Header(props) {
 
-  const cartAmount = () => {
-    return props.products.reduce((acc, value) => { 
-      return acc + value.qty
-    }, 0)
-  }
+  // const cartAmount = () => {
+  //   return props.products.reduce((acc, value) => { 
+  //     return acc + value.qty
+  //   }, 0)
+  // }
 
   return (
     <div className="header">

@@ -6,6 +6,7 @@ import Fuse from "fuse.js";
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
 import AddToCartButton from "../components/AddToCart";
+import SideBar from "../components/SideBar";
 
 import { updateCategory } from "../actions/actions";
 
@@ -48,7 +49,6 @@ function Store(props) {
     return "Products are unfolding...";
   }
 
-
   return (
     <div className="store-container">
       <div className="store-nav">
@@ -65,8 +65,13 @@ function Store(props) {
           <SearchBar placeholder="Search" />
         </div>
         <Link to="/cart">
-          <i className="fas fa-shopping-cart fa-2x" onClick={() => props.setShowCart(false)}></i>
-          <div className='cart-amount'>{cartAmount() === 0 ? "" : cartAmount()}</div>
+          <i
+            className="fas fa-shopping-cart fa-2x"
+            onClick={() => props.setShowCart(false)}
+          ></i>
+          <div className="cart-amount">
+            {cartAmount() === 0 ? "" : cartAmount()}
+          </div>
         </Link>
       </div>
       <div className="product-container">
@@ -74,11 +79,15 @@ function Store(props) {
           if (!props.currentCategory) {
             return (
               <div>
-              <Link key={product.id} to={`/product/${product.id}`}>
-                <ProductCard product={product} />
-              </Link>
-                <AddToCartButton id={product.id} setShowCart={props.setShowCart} />
-                </div>
+                <Link key={product.id} to={`/product/${product.id}`}>
+                  <ProductCard product={product} />
+                </Link>
+                <AddToCartButton
+                  setShowCart={props.setShowCart}
+                  setItemAdded={props.setItemAdded}
+                  product={product}
+                />
+              </div>
             );
           }
           if (product.category === props.currentCategory) {
@@ -87,7 +96,11 @@ function Store(props) {
                 <Link key={product.id} to={`/product/${product.id}`}>
                   <ProductCard product={product} />
                 </Link>
-                <AddToCartButton id={product.id} setShowCart={props.setShowCart} />
+                <AddToCartButton
+                  setShowCart={props.setShowCart}
+                  setItemAdded={props.setItemAdded}
+                  product={product}
+                />
               </div>
             );
           }

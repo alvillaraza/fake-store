@@ -151,6 +151,10 @@ button {
 // Cart //
 // Cart //
 .cart-container {
+  .cart-total {
+    text-align: right;
+    padding-right: 80px;
+  }
   .cart {
     display: grid;
     grid-template-columns: 3fr 1fr 1fr;
@@ -181,14 +185,25 @@ button {
 // SideBar //
 // SideBar //
 .sidebar-container {
-  background-color: blanchedalmond;
+  background-color: white;
   position: absolute;
+  // top: 0;
   bottom: 0;
   right: 0;
-  width: 50%;
+  width: 40%;
   transition-property: right, opacity;
-
   transition-duration: 0.5s;
+
+  .sidebar-items {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+
+    .sidebar-img {
+      width: 30%;
+      margin: 30px;
+    }
+  }
 
   &.hide {
     right: -100%;

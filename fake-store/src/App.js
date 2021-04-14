@@ -14,7 +14,8 @@ import "./App.css";
 import "./Normalize.css";
 
 function App(props) {
-  const [showCart, setShowCart] = useState(false)
+  const [showCart, setShowCart] = useState(false);
+  const [itemAdded, setItemAdded] = useState("");
 
   useEffect(() => {
     props.fetchAllProducts();
@@ -25,7 +26,11 @@ function App(props) {
       <Header />
       <div className="app-container">
         <Route exact path="/">
-          <Store setShowCart={setShowCart} />
+          <Store
+            showCart={showCart}
+            setShowCart={setShowCart}
+            setItemAdded={setItemAdded}
+          />
         </Route>
 
         <Route path="/product/:id">
@@ -35,7 +40,7 @@ function App(props) {
           <Cart setShowCart={setShowCart} />
         </Route>
       </div>
-      <SideBar showCart={showCart} setShowCart={setShowCart} />
+      <SideBar itemAdded={itemAdded} showCart={showCart} />
     </main>
   );
 }

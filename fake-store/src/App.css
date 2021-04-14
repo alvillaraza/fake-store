@@ -142,8 +142,6 @@ button .btn-dark.active {
   font-size: 2em;
 }
 .cart-container .cart-total {
-  text-align: right;
-  padding-right: 80px;
   font-size: 1rem;
   font-weight: bold;
 }

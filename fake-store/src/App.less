@@ -151,7 +151,6 @@ button {
 // Cart //
 // Cart //
 .cart-container {
-
   .cart {
     display: grid;
     grid-template-columns: 3fr 1fr 1fr;
@@ -182,16 +181,17 @@ button {
 // SideBar //
 // SideBar //
 .sidebar-container {
-
   background-color: blanchedalmond;
   position: absolute;
   bottom: 0;
   right: 0;
   width: 50%;
-   transition-property: opacity;
+  transition-property: right, opacity;
+
   transition-duration: 0.5s;
 
-   &.hide {
+  &.hide {
+    right: -100%;
     opacity: 0;
   }
 }

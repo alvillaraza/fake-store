@@ -139,9 +139,10 @@ button {
   bottom: 0;
   right: 0;
   width: 50%;
-  transition-property: opacity;
+  transition-property: right, opacity;
   transition-duration: 0.5s;
 }
 .sidebar-container.hide {
+  right: -100%;
   opacity: 0;
 }

@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addToCart } from "../actions/actions";
 
-function AddToCartButton(props ) {
+function AddToCartButton(props) {
   let id = props.id;
-  
+
   return (
     <div>
       {/* <Link to="/cart"> */}
@@ -13,6 +13,10 @@ function AddToCartButton(props ) {
         onClick={() => {
           props.addToCart(id);
           props.setShowCart(true);
+
+          setTimeout(() => {
+            props.setShowCart(false);
+          }, 3000);
         }}
       >
         Add To Cart

@@ -2,23 +2,28 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addToCart } from "../actions/actions";
 
-function AddToCartButton(props) {
+function AddToCartButton(props ) {
   let id = props.id;
   
-
-
   return (
     <div>
       {/* <Link to="/cart"> */}
-        <button className="cart-button" onClick={() => props.addToCart(id)}>Add To Cart</button>
+      <button
+        className="cart-button"
+        onClick={() => {
+          props.addToCart(id);
+          props.setShowCart(true);
+        }}
+      >
+        Add To Cart
+      </button>
       {/* </Link> */}
-
     </div>
   );
 }
 const mapStateToProps = (state) => {
   return {
-  products: state.products,
+    products: state.products,
   };
 };
 export default connect(mapStateToProps, { addToCart })(AddToCartButton);

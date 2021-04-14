@@ -28,14 +28,16 @@ function Product(props) {
               <div className="product-desc">
                 <h2>{product.title}</h2>
                 <p>
-                  PRICE: 
-                  <span className="price-value">${product.price}</span>
+                  PRICE:
+                  <span className="price-value">
+                    ${product.price.toFixed(2)}
+                  </span>
                 </p>
                 <p className="desc">
                   {productDescription.charAt(0).toUpperCase() +
                     productDescription.slice(1)}
                 </p>
-              <AddToCartButton id={product.id}/>
+                <AddToCartButton id={product.id} setShowCart={props.setShowCart} />
               </div>
             </React.Fragment>
           );

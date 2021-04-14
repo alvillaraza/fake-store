@@ -151,15 +151,6 @@ button {
 // Cart //
 // Cart //
 .cart-container {
-  background-color: blanchedalmond;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 50%;
-
-   &.hide {
-    display: none;
-  }
 
   .cart {
     display: grid;
@@ -185,5 +176,22 @@ button {
     button {
       margin: 11px;
     }
+  }
+}
+
+// SideBar //
+// SideBar //
+.sidebar-container {
+
+  background-color: blanchedalmond;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+   transition-property: opacity;
+  transition-duration: 0.5s;
+
+   &.hide {
+    opacity: 0;
   }
 }

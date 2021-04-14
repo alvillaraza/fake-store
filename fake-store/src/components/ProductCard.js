@@ -1,5 +1,4 @@
 import React from "react";
-import AddToCartButton from "./AddToCart";
 
 function ProductCard({ product }) {
 
@@ -8,7 +7,6 @@ function ProductCard({ product }) {
       <img src={product.image} alt="product thumbnail" />
       <p>{product.title}</p>
       <h4>${(product.price).toFixed(2)}</h4>
-      
     </div>
   );
 }

@@ -112,16 +112,6 @@ button {
 .search-bar {
   text-align: right;
 }
-.cart-container {
-  background-color: blanchedalmond;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 50%;
-}
-.cart-container.hide {
-  display: none;
-}
 .cart-container .cart {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr;
@@ -142,4 +132,16 @@ button {
 }
 .cart-container .cart button {
   margin: 11px;
+}
+.sidebar-container {
+  background-color: blanchedalmond;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+}
+.sidebar-container.hide {
+  opacity: 0;
 }

@@ -14,7 +14,6 @@ const initialState = {
   products: [],
   currentCategory: "",
   currentQuery: "",
-  cartOpen: false,
 
   isFetching: false,
   error: null,
@@ -82,7 +81,7 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         products: productsToSubtractFrom,
-      }
+      };
     case REMOVE_FROM_CART:
       let productsRemove = [...state.products];
       productsRemove.forEach((product) => {
@@ -90,11 +89,12 @@ function reducers(state = initialState, action) {
           product.inCart = false;
           product.qty = 0;
         }
-      })
+      });
+
       return {
         ...state,
         products: productsRemove,
-      }
+      };
     default:
       return state;
   }

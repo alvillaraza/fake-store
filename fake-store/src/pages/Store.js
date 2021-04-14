@@ -10,6 +10,7 @@ import AddToCartButton from "../components/AddToCart";
 import { updateCategory } from "../actions/actions";
 
 function Store(props) {
+  console.log(props);
   function handleChange(e) {
     props.updateCategory(e.target.value);
   }
@@ -76,18 +77,18 @@ function Store(props) {
               <Link key={product.id} to={`/product/${product.id}`}>
                 <ProductCard product={product} />
               </Link>
-                <AddToCartButton id={product.id} />
+                <AddToCartButton id={product.id} setShowCart={props.setShowCart} />
                 </div>
             );
           }
           if (product.category === props.currentCategory) {
             return (
               <div>
-              <Link key={product.id} to={`/product/${product.id}`}>
-                <ProductCard product={product} />
-              </Link>
-              <AddToCartButton id={product.id} />
-                </div>
+                <Link key={product.id} to={`/product/${product.id}`}>
+                  <ProductCard product={product} />
+                </Link>
+                <AddToCartButton id={product.id} setShowCart={props.setShowCart} />
+              </div>
             );
           }
           return "";

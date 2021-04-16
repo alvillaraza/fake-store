@@ -20,6 +20,7 @@ button {
   background: transparent;
   padding: 10px;
   cursor: pointer;
+  box-shadow: 0px 5px black;
 }
 button:hover,
 button .btn-dark.active {
@@ -93,15 +94,15 @@ button .btn-dark.active {
   font-family: "Playfair Display SC", serif;
   font-size: 15px;
   padding: 12px 25px;
-  box-shadow: 0px 5px black;
 }
 .product-card {
   padding: 80px 60px 10px 60px;
 }
 .product-card h4 {
-  margin: 5px 0px;
   color: black;
   font-family: "Playfair Display SC", serif;
+  font-size: 20px;
+  margin: 5px 0px;
 }
 .product-card p {
   margin: 5px 0px;
@@ -131,12 +132,14 @@ button .btn-dark.active {
   color: black;
   font-family: "Playfair Display SC", serif;
 }
-.product-info .desc {
+.product-info .product-desc {
   text-align: left;
 }
 .product-info .price-value {
-  font-size: 1.2rem;
-  font-weight: bold;
+  color: black;
+  font-family: "Playfair Display SC", serif;
+  font-size: 3em;
+  padding: 12px;
 }
 @media screen and (max-width: 720px) {
   .product-info {
@@ -170,16 +173,19 @@ button .btn-dark.active {
 .cart-container .cart .img-container {
   width: 30%;
 }
+.cart-container .cart p {
+  color: black;
+  font-family: "Playfair Display SC", serif;
+}
 .cart-container .cart button {
   margin: 11px;
+  border: solid black 1px;
 }
 .sidebar-container {
   height: 100%;
   position: absolute;
-  top: auto;
-  bottom: 10px;
   right: 0;
-  width: 40%;
+  width: 35%;
   background-color: lightgreen;
   transition-property: right, opacity;
   transition-duration: 0.5s;
@@ -189,14 +195,27 @@ button .btn-dark.active {
   opacity: 0;
 }
 .sidebar-container .sidebar-content {
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 .sidebar-container .sidebar-items {
+  margin: 10px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  align-items: center;
+}
+.sidebar-container .sidebar-items .sidebar-desc {
+  margin: 10px;
+}
+.sidebar-container .sidebar-items p {
+  color: black;
+  font-family: "Playfair Display SC", serif;
+  color: white;
+}
+.sidebar-container .sidebar-items .desc {
+  font-weight: 700;
 }
 .sidebar-container .sidebar-items .sidebar-img {
-  width: 30%;
-  margin: 30px;
+  width: 74%;
+  border: solid white 10px;
+  margin: 10px;
 }

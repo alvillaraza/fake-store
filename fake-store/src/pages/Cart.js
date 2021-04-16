@@ -32,7 +32,7 @@ function Cart(props) {
                 <p> {product.title}</p>
               </Link>
               <div className="cart-nav">
-                Qty:
+                
                 {product.qty === 1 ? (
                   <button
                     onClick={() => {
@@ -46,7 +46,7 @@ function Cart(props) {
                     -
                   </button>
                 )}
-                {product.qty}
+                {product.qty} Qty
                 <button onClick={() => props.addQty(product.id)}>+</button>
               </div>
               <div>Price: ${(product.qty * product.price).toFixed(2)}</div>

@@ -13,12 +13,14 @@ function SideBar(props) {
                     className="sidebar-img"
                     src={product.image}
                     alt="item added to cart"
-                  />
+                    />
                 </div>
-                <div>{product.title}</div>
+                <div className='sidebar-desc'>
+                    <p>Item is in your basket!</p>
+                  <div className="desc">{product.title}</div>
+                  </div>
               </div>
-              <hr />
-              <p>Added To Cart</p>
+             
             </div>
           );
         }

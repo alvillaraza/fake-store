@@ -25,6 +25,7 @@ button {
   background: transparent;
   padding: 10px;
   cursor: pointer;
+  box-shadow: 0px 5px black;
 
   &:hover,
   .btn-dark.active {
@@ -68,7 +69,7 @@ button {
     position: absolute;
     top: 8%;
     right: -59%;
-     
+
     &.hide {
       opacity: 0;
     }
@@ -120,7 +121,6 @@ button {
   .heading-font;
   font-size: 15px;
   padding: 12px 25px;
-  box-shadow: 0px 5px black;
 }
 
 // ProductCard //
@@ -129,8 +129,9 @@ button {
   padding: 80px 60px 10px 60px;
 
   h4 {
-    margin: 5px 0px;
     .heading-font;
+    font-size: 20px;
+    margin: 5px 0px;
   }
   p {
     margin: 5px 0px;
@@ -168,13 +169,14 @@ button {
     .heading-font;
   }
 
-  .desc {
+  .product-desc {
     text-align: left;
   }
 
   .price-value {
-    font-size: 1.2rem;
-    font-weight: bold;
+    .heading-font;
+    font-size: 3em;
+    padding: 12px;
   }
 
   @media screen and (max-width: 720px) {
@@ -216,8 +218,13 @@ button {
       width: 30%;
     }
 
+    p {
+      .heading-font;
+    }
+
     button {
       margin: 11px;
+      border: solid black 1px;
     }
   }
 }
@@ -227,10 +234,10 @@ button {
 .sidebar-container {
   height: 100%;
   position: absolute;
-  top: auto;
-  bottom: 10px;
+  // top: auto;
+  // bottom: 10px;
   right: 0;
-  width: 40%;
+  width: 35%;
   background-color: lightgreen;
   transition-property: right, opacity;
   transition-duration: 0.5s;
@@ -241,17 +248,32 @@ button {
   }
 
   .sidebar-content {
-    background-color: white;
+    background-color: black;
+    color: white;
   }
 
   .sidebar-items {
+    margin: 10px;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    align-items: center;
+
+    .sidebar-desc {
+      margin: 10px;
+    }
+
+    p {
+      .heading-font;
+      color: white;
+    }
+
+    .desc {
+      font-weight: 700;
+    }
 
     .sidebar-img {
-      width: 30%;
-      margin: 30px;
+      width: 74%;
+      border: solid white 10px;
+      margin: 10px;
     }
   }
 }

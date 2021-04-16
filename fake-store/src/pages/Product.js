@@ -33,7 +33,7 @@ function Product(props) {
                 </p>
                 <p>
                   <span className="price-value">
-                    ${product.price.toFixed(2)}
+                    {product.price.toFixed(2)}
                   </span>
                 </p>
                 <AddToCartButton id={product.id} />

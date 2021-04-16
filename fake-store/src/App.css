@@ -88,6 +88,7 @@ button .btn-dark.active {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  align-items: center;
 }
 .store-container .product-container .product-block a,
 .store-container .product-container .product-block > div {

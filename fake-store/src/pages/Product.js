@@ -27,15 +27,14 @@ function Product(props) {
               </div>
               <div className="product-desc">
                 <h2>{product.title}</h2>
-                <p>
-                  PRICE:
-                  <span className="price-value">
-                    ${product.price.toFixed(2)}
-                  </span>
-                </p>
                 <p className="desc">
                   {productDescription.charAt(0).toUpperCase() +
                     productDescription.slice(1)}
+                </p>
+                <p>
+                  <span className="price-value">
+                    ${product.price.toFixed(2)}
+                  </span>
                 </p>
                 <AddToCartButton id={product.id} />
               </div>

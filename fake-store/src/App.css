@@ -12,17 +12,6 @@ body {
 img {
   max-width: 100%;
 }
-h1 {
-  color: black;
-  font-family: "Playfair Display SC", serif;
-}
-h2,
-h4,
-h5,
-p {
-  color: black;
-  font-family: "Arimo", sans-serif;
-}
 a {
   text-decoration: none;
 }
@@ -48,7 +37,7 @@ button .btn-dark.active {
 }
 .header-container .shopping-bag {
   position: absolute;
-  top: 53%;
+  top: 26%;
 }
 .header-container .fa-shopping-bag {
   color: white;
@@ -70,12 +59,12 @@ button .btn-dark.active {
   margin: 2%;
 }
 .store-container .store-nav {
-  margin-top: -10%;
+  margin-top: -6%;
   display: flex;
   justify-content: center;
 }
 .store-container .store-nav form {
-  padding-right: 25px;
+  padding-left: 35px;
 }
 .store-container .store-nav .dropdown {
   border: none;
@@ -90,7 +79,7 @@ button .btn-dark.active {
   }
 }
 .fa-search {
-  padding-left: 115px;
+  padding-left: 58px;
 }
 .search-input {
   border-bottom: solid black 2px;
@@ -133,6 +122,10 @@ button .btn-dark.active {
 }
 .product-info .img-container {
   padding: 10%;
+}
+.product-info h2 {
+  color: black;
+  font-family: "Playfair Display SC", serif;
 }
 .product-info .desc {
   text-align: left;

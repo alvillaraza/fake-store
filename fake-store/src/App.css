@@ -1,12 +1,11 @@
 body {
   line-height: 1.5;
+  color: black;
 }
 .heading-font {
-  color: black;
   font-family: "Playfair Display SC", serif;
 }
 .text-font {
-  color: black;
   font-family: "Arimo", sans-serif;
 }
 img {
@@ -14,10 +13,10 @@ img {
 }
 a {
   text-decoration: none;
+  color: black;
 }
 button {
   border: solid 2px #1f1f1f;
-  background: transparent;
   padding: 10px;
   cursor: pointer;
   box-shadow: 0px 5px black;
@@ -56,6 +55,13 @@ button .btn-dark.active {
   position: absolute;
   top: 8%;
   right: -59%;
+  line-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-container .cart-amount span {
+  transform: translateY(-3px);
 }
 .header-container .cart-amount.hide {
   opacity: 0;
@@ -78,6 +84,27 @@ button .btn-dark.active {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+.store-container .product-container .product-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.store-container .product-container .product-block a,
+.store-container .product-container .product-block > div {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+}
+.store-container .product-container .product-block > div {
+  z-index: 1;
+}
+.store-container .product-container .product-block .cart-button {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+}
+.store-container .product-container .product-block:hover .cart-button {
+  opacity: 1;
+}
 @media screen and (max-width: 720px) {
   .store-container .product-container {
     grid-template-columns: 1fr;
@@ -90,7 +117,6 @@ button .btn-dark.active {
   border-bottom: solid black 2px;
 }
 .cart-button {
-  color: black;
   font-family: "Playfair Display SC", serif;
   font-size: 15px;
   padding: 12px 25px;
@@ -99,14 +125,12 @@ button .btn-dark.active {
   padding: 80px 60px 10px 60px;
 }
 .product-card h4 {
-  color: black;
   font-family: "Playfair Display SC", serif;
   font-size: 20px;
   margin: 5px 0px;
 }
 .product-card p {
   margin: 5px 0px;
-  color: black;
   font-family: "Arimo", sans-serif;
 }
 .product-card img {
@@ -129,14 +153,12 @@ button .btn-dark.active {
   padding: 10%;
 }
 .product-info h2 {
-  color: black;
   font-family: "Playfair Display SC", serif;
 }
 .product-info .product-desc {
   text-align: left;
 }
 .product-info .price-value {
-  color: black;
   font-family: "Playfair Display SC", serif;
   font-size: 3em;
   padding: 12px;
@@ -147,37 +169,55 @@ button .btn-dark.active {
     justify-items: stretch;
   }
 }
-.cart-container .start-shopping {
-  color: black;
+.cart-container {
   font-family: "Playfair Display SC", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .cart-container .cart-total {
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 .cart-container .cart {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   border-bottom: 1px solid black;
   padding: 30px;
+  width: 55%;
 }
 .cart-container .cart .cart-link {
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
 }
+.cart-container .cart .cart-desc {
+  margin: 15px;
+  text-align: left;
+}
+.cart-container .cart .cart-desc p {
+  margin: 0;
+}
+.cart-container .cart .cart-desc span {
+  font-size: 2rem;
+}
 .cart-container .cart .cart-nav {
-  margin-left: 45px;
+  display: flex;
+  align-items: start;
 }
-.cart-container .cart .img-container {
-  width: 30%;
+.cart-container .cart .cart-nav .cart-qty {
+  padding-top: 7px;
 }
-.cart-container .cart p {
-  color: black;
-  font-family: "Playfair Display SC", serif;
+.cart-container .cart .cart-nav span {
+  font-size: 2em;
+}
+.cart-container .cart .cart-nav p {
+  margin: 0;
 }
 .cart-container .cart button {
+  font-family: "Arimo", sans-serif;
+  font-weight: 900;
   margin: 11px;
   border: solid black 1px;
 }
@@ -207,7 +247,6 @@ button .btn-dark.active {
   margin: 10px;
 }
 .sidebar-container .sidebar-items p {
-  color: black;
   font-family: "Playfair Display SC", serif;
   color: white;
 }

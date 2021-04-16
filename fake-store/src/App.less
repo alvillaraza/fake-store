@@ -1,14 +1,13 @@
 body {
   line-height: 1.5;
+  color: black;
 }
 
 .heading-font {
-  color: black;
   font-family: "Playfair Display SC", serif;
 }
 
 .text-font {
-  color: black;
   font-family: "Arimo", sans-serif;
 }
 
@@ -18,11 +17,11 @@ img {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 button {
   border: solid 2px #1f1f1f;
-  background: transparent;
   padding: 10px;
   cursor: pointer;
   box-shadow: 0px 5px black;
@@ -69,6 +68,13 @@ button {
     position: absolute;
     top: 8%;
     right: -59%;
+    line-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      transform: translateY(-3px);
+    }
 
     &.hide {
       opacity: 0;
@@ -98,6 +104,36 @@ button {
   .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+
+    .product-block {
+      display: grid;
+      //creates 1 block
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+
+      a,
+      > div {
+        //puts the button and the clothing on top of each other, start at block 1, end at block 1
+        grid-column: ~"1 / -1";
+        grid-row: ~"1 / -1";
+      }
+
+      > div {
+        z-index: 1;
+      }
+
+      .cart-button {
+        opacity: 0;
+        transition-property: opacity;
+        transition-duration: 0.5s;
+      }
+
+      &:hover {
+        .cart-button {
+          opacity: 1;
+        }
+      }
+    }
 
     @media screen and (max-width: 720px) {
       grid-template-columns: 1fr;
@@ -188,21 +224,23 @@ button {
 // Cart //
 // Cart //
 .cart-container {
-  .start-shopping {
-    .heading-font;
-  }
+  .heading-font;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .cart-total {
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: bold;
   }
 
   .cart {
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     align-items: center;
     border-bottom: 1px solid black;
     padding: 30px;
+    width: 55%;
 
     .cart-link {
       display: grid;
@@ -210,19 +248,39 @@ button {
       align-items: center;
     }
 
+    .cart-desc {
+      margin: 15px;
+      text-align: left;
+
+      p {
+        margin: 0;
+      }
+
+      span {
+        font-size: 2rem;
+      }
+    }
+
     .cart-nav {
-      margin-left: 45px;
-    }
+      display: flex;
+      align-items: start;
 
-    .img-container {
-      width: 30%;
-    }
+      .cart-qty {
+        padding-top: 7px;
+      }
 
-    p {
-      .heading-font;
+      span {
+        font-size: 2em;
+      }
+
+      p {
+        margin: 0;
+      }
     }
 
     button {
+      .text-font;
+      font-weight: 900;
       margin: 11px;
       border: solid black 1px;
     }

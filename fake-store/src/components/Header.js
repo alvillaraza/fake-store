@@ -21,7 +21,7 @@ function Header(props) {
         <Link className="shopping-bag" to="/cart">
           <i className="fas fa-shopping-bag fa-2x"></i>
           <div className={`cart-amount ${cartAmount() === 0 ? 'hide' : ''}`}>
-            {cartAmount() === 0 ? "" : cartAmount()}
+            <span>{cartAmount() === 0 ? "" : cartAmount()}</span>
           </div>
         </Link>
       </div>

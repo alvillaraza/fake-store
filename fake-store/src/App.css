@@ -41,19 +41,23 @@ button .btn-dark.active {
 }
 .header-container .fa-shopping-bag {
   color: white;
+  font-size: 28px;
 }
 .header-container .cart-amount {
   font-family: "Playfair Display SC", serif;
-  background-color: black;
   color: white;
-  border: solid white 2px;
   text-align: center;
+  background-color: black;
+  border: solid white 2px;
   border-radius: 50%;
-  font-size: 10px;
-  font-weight: 900;
+  width: 15px;
+  height: 15px;
   position: absolute;
-  top: 13%;
-  right: -35%;
+  top: 8%;
+  right: -59%;
+}
+.header-container .cart-amount.hide {
+  opacity: 0;
 }
 .store-container {
   margin: 2%;

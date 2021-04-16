@@ -20,8 +20,6 @@ a {
   text-decoration: none;
 }
 
-
-
 button {
   border: solid 2px #1f1f1f;
   background: transparent;
@@ -55,20 +53,25 @@ button {
 
   .fa-shopping-bag {
     color: white;
+    font-size: 28px;
   }
 
   .cart-amount {
     font-family: "Playfair Display SC", serif;
-    background-color: black;
     color: white;
-    border: solid white 2px;
     text-align: center;
+    background-color: black;
+    border: solid white 2px;
     border-radius: 50%;
-    font-size: 10px;
-    font-weight: 900;
+    width: 15px;
+    height: 15px;
     position: absolute;
-    top: 13%;
-    right: -35%;
+    top: 8%;
+    right: -59%;
+     
+    &.hide {
+      opacity: 0;
+    }
   }
 }
 
@@ -87,7 +90,7 @@ button {
     }
 
     .dropdown {
-        border: none;
+      border: none;
     }
   }
 
@@ -179,7 +182,6 @@ button {
     justify-items: stretch;
   }
 }
-
 
 // Cart //
 // Cart //

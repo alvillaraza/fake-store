@@ -4,6 +4,7 @@ import {
   FETCH_ALL_PRODUCTS_FAILURE,
   UPDATE_CATEGORY,
   UPDATE_QUERY,
+  OPEN_SIDEBAR,
   ADD_TO_CART,
   ADD_QTY,
   SUBTRACT_QTY,
@@ -14,6 +15,8 @@ const initialState = {
   products: [],
   currentCategory: "",
   currentQuery: "",
+  sidebarItem: [], 
+  sidebarOpen: false,
 
   isFetching: false,
   error: null,
@@ -47,6 +50,11 @@ function reducers(state = initialState, action) {
         ...state,
         currentQuery: action.payload,
       };
+    case OPEN_SIDEBAR:
+      return {
+        ...state,
+        sidebarOpen: action.payload,
+      }
     case ADD_TO_CART:
       let productsCopy = [...state.products];
       productsCopy.forEach((product) => {
@@ -58,7 +66,8 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         products: productsCopy,
-        cartOpen: true,
+        sidebarItem: action.payload,
+             
       };
     case ADD_QTY:
       let productsToAddFrom = [...state.products];

@@ -1,41 +1,25 @@
 body {
   line-height: 1.5;
+  color: black;
 }
 .heading-font {
-  color: black;
-  font-family: "Corben", cursive;
-  font-size: 2em;
+  font-family: "Playfair Display SC", serif;
 }
 .text-font {
-  color: black;
-  font-family: "Nobile", sans-serif;
+  font-family: "Arimo", sans-serif;
 }
 img {
   max-width: 100%;
 }
-h1 {
-  color: black;
-  font-family: "Corben", cursive;
-  font-size: 2em;
-}
-h2,
-h4,
-h5,
-p {
-  color: black;
-  font-family: "Nobile", sans-serif;
-}
 a {
   text-decoration: none;
-}
-input {
-  border: solid 2px #1f1f1f;
+  color: black;
 }
 button {
   border: solid 2px #1f1f1f;
-  background: transparent;
   padding: 10px;
   cursor: pointer;
+  box-shadow: 0px 5px black;
 }
 button:hover,
 button .btn-dark.active {
@@ -46,60 +30,109 @@ button .btn-dark.active {
 .app-container {
   text-align: center;
 }
-.header {
-  background-color: black;
-  align-items: center;
-  padding: 30px;
+.header-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
-.header .fa-shopping-bag {
-  color: white;
-  align-items: right;
-}
-.header .cart-amount {
-  background-color: lightgrey;
-  color: black;
-  text-align: center;
-  border-radius: 50%;
-  font-size: 10px;
-  font-weight: 900;
-  width: 25px;
+.header-container .shopping-bag {
   position: absolute;
-  top: 6%;
-  right: 1%;
+  top: 26%;
 }
-.header h1 {
+.header-container .fa-shopping-bag {
   color: white;
+  font-size: 28px;
+}
+.header-container .cart-amount {
+  font-family: "Playfair Display SC", serif;
+  color: white;
+  text-align: center;
+  background-color: black;
+  border: solid white 2px;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 8%;
+  right: -59%;
+  line-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-container .cart-amount span {
+  transform: translateY(-3px);
+}
+.header-container .cart-amount.hide {
+  opacity: 0;
 }
 .store-container {
   margin: 2%;
 }
 .store-container .store-nav {
+  margin-top: -6%;
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+  justify-content: center;
+}
+.store-container .store-nav form {
+  padding-left: 35px;
 }
 .store-container .store-nav .dropdown {
-  border: solid 2px #1f1f1f;
+  border: none;
 }
 .store-container .product-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+.store-container .product-container .product-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+.store-container .product-container .product-block a,
+.store-container .product-container .product-block > div {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+}
+.store-container .product-container .product-block > div {
+  z-index: 1;
+}
+.store-container .product-container .product-block .cart-button {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+}
+.store-container .product-container .product-block:hover .cart-button {
+  opacity: 1;
 }
 @media screen and (max-width: 720px) {
   .store-container .product-container {
     grid-template-columns: 1fr;
   }
 }
+.fa-search {
+  padding-left: 58px;
+}
+.search-input {
+  border-bottom: solid black 2px;
+}
+.cart-button {
+  font-family: "Playfair Display SC", serif;
+  font-size: 15px;
+  padding: 12px 25px;
+}
 .product-card {
   padding: 80px 60px 10px 60px;
 }
-.product-card h4,
+.product-card h4 {
+  font-family: "Playfair Display SC", serif;
+  font-size: 20px;
+  margin: 5px 0px;
+}
 .product-card p {
   margin: 5px 0px;
-  color: black;
-  font-family: "Nobile", sans-serif;
+  font-family: "Arimo", sans-serif;
 }
 .product-card img {
   width: 300px;
@@ -120,12 +153,16 @@ button .btn-dark.active {
 .product-info .img-container {
   padding: 10%;
 }
-.product-info .desc {
+.product-info h2 {
+  font-family: "Playfair Display SC", serif;
+}
+.product-info .product-desc {
   text-align: left;
 }
 .product-info .price-value {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-family: "Playfair Display SC", serif;
+  font-size: 3em;
+  padding: 12px;
 }
 @media screen and (max-width: 720px) {
   .product-info {
@@ -133,48 +170,63 @@ button .btn-dark.active {
     justify-items: stretch;
   }
 }
-.search-bar {
-  text-align: right;
-}
-.cart-container .start-shopping {
-  color: black;
-  font-family: "Corben", cursive;
-  font-size: 2em;
+.cart-container {
+  font-family: "Playfair Display SC", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .cart-container .cart-total {
-  text-align: right;
-  padding-right: 80px;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 .cart-container .cart {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   border-bottom: 1px solid black;
   padding: 30px;
+  width: 55%;
 }
 .cart-container .cart .cart-link {
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
 }
-.cart-container .cart .cart-nav {
-  margin-left: 45px;
+.cart-container .cart .cart-desc {
+  margin: 15px;
+  text-align: left;
 }
-.cart-container .cart .img-container {
-  width: 30%;
+.cart-container .cart .cart-desc p {
+  margin: 0;
+}
+.cart-container .cart .cart-desc span {
+  font-size: 2rem;
+}
+.cart-container .cart .cart-nav {
+  display: flex;
+  align-items: start;
+}
+.cart-container .cart .cart-nav .cart-qty {
+  padding-top: 7px;
+}
+.cart-container .cart .cart-nav span {
+  font-size: 2em;
+}
+.cart-container .cart .cart-nav p {
+  margin: 0;
 }
 .cart-container .cart button {
+  font-family: "Arimo", sans-serif;
+  font-weight: 900;
   margin: 11px;
+  border: solid black 1px;
 }
 .sidebar-container {
   height: 100%;
   position: absolute;
-  top: 0;
-  bottom: 0;
   right: 0;
-  width: 40%;
+  width: 35%;
   background-color: lightgreen;
   transition-property: right, opacity;
   transition-duration: 0.5s;
@@ -184,14 +236,26 @@ button .btn-dark.active {
   opacity: 0;
 }
 .sidebar-container .sidebar-content {
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 .sidebar-container .sidebar-items {
+  margin: 10px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  align-items: center;
+}
+.sidebar-container .sidebar-items .sidebar-desc {
+  margin: 10px;
+}
+.sidebar-container .sidebar-items p {
+  font-family: "Playfair Display SC", serif;
+  color: white;
+}
+.sidebar-container .sidebar-items .desc {
+  font-weight: 700;
 }
 .sidebar-container .sidebar-items .sidebar-img {
-  width: 30%;
-  margin: 30px;
+  width: 74%;
+  border: solid white 10px;
+  margin: 10px;
 }

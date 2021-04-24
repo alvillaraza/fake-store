@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Store from "./pages/Store";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
-// import SideBar from "./components/SideBar";
+import SideBar from "./components/SideBar";
 
 import { fetchAllProducts } from "./actions/actions";
 
@@ -19,26 +19,30 @@ function App(props) {
   }, []);
 
   return (
-    <main>
-      <Header />
-      <div className="app-container">
-        <Route exact path="/">
-          <Store />
-        </Route>
-
-        <Route path="/product/:id">
-          <Product />
-        </Route>
-        <Route path="/cart">
-          <Cart />
-        </Route>
+    <>
+      <div className={`sidebar-wrapper  ${props.sidebarOpen ? "" : "hide"}`}>
+        <SideBar />
       </div>
-      {/* <SideBar /> */}
-    </main>
+      <main>
+        <Header />
+        <div className="app-container">
+          <Route exact path="/">
+            <Store />
+          </Route>
+
+          <Route path="/product/:id">
+            <Product />
+          </Route>
+          <Route path="/cart">
+            <Cart />
+          </Route>
+        </div>
+      </main>
+    </>
   );
 }
 const mapStateToProps = (state) => {
-  return { products: state.products };
+  return { products: state.products, sidebarOpen: state.sidebarOpen };
 };
 
 export default connect(mapStateToProps, { fetchAllProducts })(App);

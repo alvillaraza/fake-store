@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addToCart, sidebarOpen } from "../actions/actions";
 
@@ -6,7 +6,7 @@ function AddToCartButton(props) {
 
   return (
     <div>
-      <Link to="/cart">
+      {/* <Link to="/cart"> */}
       <button
         className="cart-button"
         onClick={() => {
@@ -21,7 +21,7 @@ function AddToCartButton(props) {
       >
         Add To Cart
       </button>
-      </Link>
+      {/* </Link> */}
     </div>
   );
 }

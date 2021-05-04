@@ -222,39 +222,47 @@ button .btn-dark.active {
   margin: 11px;
   border: solid black 1px;
 }
-.sidebar-container {
-  height: 100%;
-  position: absolute;
-  right: 0;
+.sidebar-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.sidebar-wrapper.hide {
+  z-index: -1;
+}
+.sidebar-wrapper .sidebar-container {
+  transform: translateX(0);
   width: 35%;
-  background-color: lightgreen;
-  transition-property: right, opacity;
+  transition-property: transform, opacity;
   transition-duration: 0.5s;
 }
-.sidebar-container.hide {
-  right: -100%;
+.sidebar-wrapper .sidebar-container.hide {
   opacity: 0;
+  transform: translateX(100px);
 }
-.sidebar-container .sidebar-content {
+.sidebar-wrapper .sidebar-items {
   background-color: black;
   color: white;
-}
-.sidebar-container .sidebar-items {
   margin: 10px;
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
-.sidebar-container .sidebar-items .sidebar-desc {
+.sidebar-wrapper .sidebar-items .sidebar-desc {
   margin: 10px;
 }
-.sidebar-container .sidebar-items p {
+.sidebar-wrapper .sidebar-items p {
   font-family: "Playfair Display SC", serif;
   color: white;
 }
-.sidebar-container .sidebar-items .desc {
+.sidebar-wrapper .sidebar-items .desc {
   font-weight: 700;
 }
-.sidebar-container .sidebar-items .sidebar-img {
+.sidebar-wrapper .sidebar-items .sidebar-img {
   width: 74%;
   border: solid white 10px;
   margin: 10px;

@@ -6,7 +6,6 @@ function SideBar(props) {
       {props.products.map((product) => {
         if (product.id === props.sidebarItem) {
           return (
-            <div className="sidebar-content">
               <div className="sidebar-items">
                 <div>
                   <img
@@ -21,7 +20,6 @@ function SideBar(props) {
                   </div>
               </div>
              
-            </div>
           );
         }
       })}

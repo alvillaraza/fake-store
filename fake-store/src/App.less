@@ -290,28 +290,35 @@ button {
 
 // SideBar //
 // SideBar //
-.sidebar-container {
-  height: 100%;
-  position: absolute;
-  // top: auto;
-  // bottom: 10px;
-  right: 0;
-  width: 35%;
-  background-color: lightgreen;
-  transition-property: right, opacity;
-  transition-duration: 0.5s;
+.sidebar-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 
   &.hide {
-    right: -100%;
-    opacity: 0;
+    z-index: -1;
   }
 
-  .sidebar-content {
-    background-color: black;
-    color: white;
+  .sidebar-container {
+    transform: translateX(0);
+    width: 35%;
+    transition-property: transform, opacity;
+    transition-duration: 0.5s;
+
+    &.hide {
+      opacity: 0;
+      transform: translateX(100px);
+    }
   }
 
   .sidebar-items {
+    background-color: black;
+    color: white;
     margin: 10px;
     display: grid;
     grid-template-columns: 1fr 2fr;

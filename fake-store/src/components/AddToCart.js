@@ -15,7 +15,7 @@ function AddToCartButton(props) {
 
           setTimeout(() => {
             props.sidebarOpen(false)
-          }, 2500);
+          }, 2000);
         }
         }
       >

@@ -53,8 +53,8 @@ function Store(props) {
             <option value="">See all Products</option>
             <option value="electronics">Electronics</option>
             <option value="jewelery">Jewelry</option>
-            <option value="men clothing">Men's Clothing</option>
-            <option value="women clothing">Women's Clothing</option>
+            <option value="men's clothing">Men's Clothing</option>
+            <option value="women's clothing">Women's Clothing</option>
           </select>
         </form>
         <div>

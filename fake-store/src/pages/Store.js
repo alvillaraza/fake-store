@@ -23,7 +23,6 @@ function Store(props) {
 
   const fuse = new Fuse(props.products, {
     keys: ["title", "description", "category"],
-    includeScore: true,
   });
 
   const query = props.currentQuery;

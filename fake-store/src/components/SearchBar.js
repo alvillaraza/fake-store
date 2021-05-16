@@ -20,7 +20,8 @@ const SearchBar = (props) => {
         value={props.currentQuery}
         onChange={onSearch}
         placeholder="Search products..."
-        name="search bar"
+        ame="search"
+        aria-label="Search"
       />
     </div>
   );

@@ -4,7 +4,6 @@ import { updateQuery } from "../actions/actions";
 
 const SearchBar = (props) => {
 
-  // Updates the search bar
   function onSearch(e) {
     props.updateQuery(e.target.value);
   }

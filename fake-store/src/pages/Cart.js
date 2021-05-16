@@ -69,7 +69,6 @@ function Cart(props) {
     </div>
   );
 }
-// Total: ${getTotal().toFixed(2)}
 
 const mapStateToProps = (state) => {
   return {

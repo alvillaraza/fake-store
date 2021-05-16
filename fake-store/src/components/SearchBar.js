@@ -20,6 +20,7 @@ const SearchBar = (props) => {
         value={props.currentQuery}
         onChange={onSearch}
         placeholder="Search products..."
+        name="search bar"
       />
     </div>
   );

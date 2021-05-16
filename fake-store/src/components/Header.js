@@ -18,7 +18,7 @@ function Header(props) {
           <img className="header" src={header} alt="faux boutique" />
         </Link>
 
-        <Link className="shopping-bag" to="/cart">
+        <Link className="shopping-bag" to="/cart" title="click here to see your cart">
           <i className="fas fa-shopping-bag fa-2x"></i>
           <div className={`cart-amount ${cartAmount() === 0 ? 'hide' : ''}`}>
             <span>{cartAmount() === 0 ? "" : cartAmount()}</span>

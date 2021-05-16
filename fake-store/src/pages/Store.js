@@ -49,7 +49,7 @@ function Store(props) {
             onChange={handleChange}
             value={props.currentCategory}
           >
-            <option value="">See all Products</option>
+            <option value="" placeholder="see all products">See all Products</option>
             <option value="electronics">Electronics</option>
             <option value="jewelery">Jewelry</option>
             <option value="men's clothing">Men's Clothing</option>

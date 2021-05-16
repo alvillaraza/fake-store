@@ -222,53 +222,47 @@ button .btn-dark.active {
   margin: 11px;
   border: solid black 1px;
 }
-.sidebar-wrapper {
+.sidebar-container {
   position: fixed;
-  left: 0;
+  right: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: flex-end;
   align-items: flex-end;
-}
-.sidebar-wrapper.hide {
-  z-index: -1;
-}
-.sidebar-wrapper .sidebar-container {
   transform: translateX(0);
   width: 35%;
   transition-property: transform, opacity;
   transition-duration: 0.5s;
 }
-.sidebar-wrapper .sidebar-container.hide {
+.sidebar-container.hide {
   opacity: 0;
   transform: translateX(100px);
 }
-.sidebar-wrapper .sidebar-items {
+.sidebar-items {
   background-color: black;
   color: white;
   margin: 10px;
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
-.sidebar-wrapper .sidebar-items .sidebar-desc {
+.sidebar-items .sidebar-desc {
   margin: 10px;
 }
-.sidebar-wrapper .sidebar-items p {
+.sidebar-items p {
   font-family: "Playfair Display SC", serif;
   color: white;
 }
-.sidebar-wrapper .sidebar-items .desc {
+.sidebar-items .desc {
   font-weight: 700;
 }
-.sidebar-wrapper .sidebar-items .desc .fa-shopping-bag {
+.sidebar-items .desc .fa-shopping-bag {
   padding: 5px;
 }
-.sidebar-wrapper .sidebar-items .desc .animate__animated.animate__bounce {
+.sidebar-items .desc .animate__animated.animate__bounce {
   --animate-duration: 2s;
 }
-.sidebar-wrapper .sidebar-items .sidebar-img {
+.sidebar-items .sidebar-img {
   width: 74%;
   border: solid white 10px;
   margin: 10px;

@@ -20,9 +20,9 @@ function App(props) {
 
   return (
     <>
-      <div className={`sidebar-wrapper  ${props.sidebarOpen ? "" : "hide"}`}>
+   
         <SideBar />
-      </div>
+     
       <main>
         <Header />
         <div className="app-container">

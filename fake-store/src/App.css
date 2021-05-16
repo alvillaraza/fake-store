@@ -205,7 +205,7 @@ button .btn-dark.active {
 }
 .cart-container .cart .cart-nav {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
 }
 .cart-container .cart .cart-nav .cart-qty {
   padding-top: 7px;
@@ -261,6 +261,12 @@ button .btn-dark.active {
 }
 .sidebar-wrapper .sidebar-items .desc {
   font-weight: 700;
+}
+.sidebar-wrapper .sidebar-items .desc .fa-shopping-bag {
+  padding: 5px;
+}
+.sidebar-wrapper .sidebar-items .desc .animate__animated.animate__bounce {
+  --animate-duration: 2s;
 }
 .sidebar-wrapper .sidebar-items .sidebar-img {
   width: 74%;

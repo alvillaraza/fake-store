@@ -6,21 +6,29 @@ function SideBar(props) {
       {props.products.map((product) => {
         if (product.id === props.sidebarItem) {
           return (
-              <div className="sidebar-items">
-                <div>
-                  <img
-                    className="sidebar-img"
-                    src={product.image}
-                    alt="item added to cart"
-                    />
-                </div>
-                <div className='sidebar-desc'>
-                    <p>Item is in your basket!</p>
-                  <div className="desc">{product.title}</div>
-                  </div>
+            <div className="sidebar-items">
+              <div>
+                <img
+                  className="sidebar-img"
+                  src={product.image}
+                  alt="item added to cart"
+                />
               </div>
-             
+              <div className="sidebar-desc">
+                <p>Item is in your basket!</p>
+                <div className="desc">
+                  <i
+                    class="fa fa-shopping-bag animate__animated
+                    animate__bounce"
+                    aria-hidden="true"
+                  ></i>
+                  {product.title}
+                </div>
+              </div>
+            </div>
           );
+        } else {
+          return ''
         }
       })}
     </div>

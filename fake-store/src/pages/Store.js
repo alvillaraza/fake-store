@@ -48,8 +48,11 @@ function Store(props) {
             className="dropdown"
             onChange={handleChange}
             value={props.currentCategory}
+            aria-label="dropdown"
           >
-            <option value="" placeholder="see all products">See all Products</option>
+            <option value="" placeholder="see all products">
+              See all Products
+            </option>
             <option value="electronics">Electronics</option>
             <option value="jewelery">Jewelry</option>
             <option value="men's clothing">Men's Clothing</option>
@@ -83,7 +86,7 @@ function Store(props) {
               </div>
             );
           }
-          
+
           return "";
         })}
       </div>

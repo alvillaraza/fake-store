@@ -6,7 +6,7 @@ function SideBar(props) {
       {props.products.map((product) => {
         if (product.id === props.sidebarItem) {
           return (
-            <div className="sidebar-items">
+            <div className="sidebar-items" key={product.id}>
               <div>
                 <img
                   className="sidebar-img"
@@ -18,7 +18,7 @@ function SideBar(props) {
                 <p>Item is in your basket!</p>
                 <div className="desc">
                   <i
-                    class="fa fa-shopping-bag animate__animated
+                    className="fa fa-shopping-bag animate__animated
                     animate__bounce"
                     aria-hidden="true"
                   ></i>

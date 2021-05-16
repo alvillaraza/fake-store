@@ -65,8 +65,8 @@ function Store(props) {
         {productResults.map((product) => {
           if (!props.currentCategory) {
             return (
-              <div className="product-block">
-                <Link key={product.id} to={`/product/${product.id}`}>
+              <div className="product-block" key={product.id}>
+                <Link to={`/product/${product.id}`}>
                   <ProductCard product={product} />
                 </Link>
                 <AddToCartButton id={product.id} />
@@ -76,8 +76,8 @@ function Store(props) {
 
           if (product.category === props.currentCategory) {
             return (
-              <div className="product-block">
-                <Link key={product.id} to={`/product/${product.id}`}>
+              <div className="product-block" key={product.id}>
+                <Link to={`/product/${product.id}`}>
                   <ProductCard product={product} />
                 </Link>
                 <AddToCartButton id={product.id} />

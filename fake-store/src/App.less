@@ -279,6 +279,18 @@ button {
       }
     }
 
+    @media screen and (max-width: 620px) {
+      grid-template-columns: 1fr;
+
+      .cart-link {
+        grid-template-columns: 1fr;
+      }
+
+      .cart-nav {
+        justify-content: center;
+      }
+    }
+
     button {
       .text-font;
       font-weight: 900;
@@ -293,19 +305,19 @@ button {
 .sidebar-container {
   position: fixed;
   right: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
+  bottom: 0;
   display: flex;
+  justify-content: flex-end;
   align-items: flex-end;
   transform: translateX(0);
-  width: 35%;
+  width: 40%;
   transition-property: transform, opacity;
   transition-duration: 0.5s;
 
   &.hide {
     opacity: 0;
     transform: translateX(100px);
+    z-index: -1;
   }
 }
 
@@ -318,6 +330,7 @@ button {
 
   .sidebar-desc {
     margin: 10px;
+    padding: 10px;
   }
 
   p {

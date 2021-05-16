@@ -8,7 +8,6 @@ import AddToCartButton from "../components/AddToCart";
 
 function Product(props) {
   const match = useRouteMatch();
-  console.log(props.products);
 
   useEffect(() => {
     fetchAllProducts(match.params.id);

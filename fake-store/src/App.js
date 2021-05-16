@@ -20,9 +20,7 @@ function App(props) {
 
   return (
     <>
-   
-        <SideBar />
-     
+      <SideBar />
       <main>
         <Header />
         <div className="app-container">

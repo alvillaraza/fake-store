@@ -216,6 +216,17 @@ button .btn-dark.active {
 .cart-container .cart .cart-nav p {
   margin: 0;
 }
+@media screen and (max-width: 620px) {
+  .cart-container .cart {
+    grid-template-columns: 1fr;
+  }
+  .cart-container .cart .cart-link {
+    grid-template-columns: 1fr;
+  }
+  .cart-container .cart .cart-nav {
+    justify-content: center;
+  }
+}
 .cart-container .cart button {
   font-family: "Arimo", sans-serif;
   font-weight: 900;
@@ -225,19 +236,19 @@ button .btn-dark.active {
 .sidebar-container {
   position: fixed;
   right: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
+  bottom: 0;
   display: flex;
+  justify-content: flex-end;
   align-items: flex-end;
   transform: translateX(0);
-  width: 35%;
+  width: 40%;
   transition-property: transform, opacity;
   transition-duration: 0.5s;
 }
 .sidebar-container.hide {
   opacity: 0;
   transform: translateX(100px);
+  z-index: -1;
 }
 .sidebar-items {
   background-color: black;
@@ -248,6 +259,7 @@ button .btn-dark.active {
 }
 .sidebar-items .sidebar-desc {
   margin: 10px;
+  padding: 10px;
 }
 .sidebar-items p {
   font-family: "Playfair Display SC", serif;
